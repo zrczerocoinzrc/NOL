@@ -1,6 +1,6 @@
 entrypoint="index.html"
 hidden=[".config"]
-modules = ["web:v2-20230623-0b7a606"]
+modules = ["python-3.11", "web:v2-20230623-0b7a606"]
 
 [nix]
 channel = "stable-23_11"
@@ -8,3 +8,27 @@ channel = "stable-23_11"
 [deployment]
 publicDir = "/"
 deploymentTarget = "static"
+run = ["sh", "-c", "python -m http.server 8080 --bind 0.0.0.0"]
+
+[[ports]]
+localPort = 8080
+externalPort = 80
+
+[workflows]
+runButton = "Web Server"
+
+[[workflows.workflow]]
+name = "Run Server"
+author = 39194730
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python -m http.server 8080 --bind 0.0.0.0"
+
+[[workflows.workflow]]
+name = "Web Server"
+author = 39194730
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python -m http.server 8080 --bind 0.0.0.0"
