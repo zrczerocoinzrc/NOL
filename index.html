@@ -22,11 +22,17 @@
         }
         h1 {
             font-size: 36px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 1.5s ease-out forwards 1s;
         }
         p {
             font-size: 18px;
             margin: 20px auto;
             max-width: 600px;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 1.5s ease-out forwards 1.2s;
         }
         .btn {
             display: inline-block;
@@ -37,52 +43,95 @@
             text-decoration: none;
             border-radius: 8px;
             margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards 1.5s;
         }
 
         /* Crypto-style text for creator's name */
         .creator {
             font-family: "Orbitron", sans-serif;
-            font-size: 14px;
+            font-size: 12px;
             color: #9b59b6;
-            margin-top: 50px;
-            letter-spacing: 2px;
+            position: fixed;
+            bottom: 10px;
+            right: 15px;
+            text-align: right;
+            opacity: 0.7;
         }
 
-        /* Entry effect */
+        /* Smooth Entry Effect */
         .entry-effect {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(128,0,128,0.8), transparent);
+            background: radial-gradient(circle, rgba(128,0,128,0.9), transparent);
             opacity: 1;
             pointer-events: none;
-            animation: fadeOut 3s ease-out forwards;
+            animation: softFadeOut 3.5s ease-out forwards;
         }
 
-        @keyframes fadeOut {
+        /* Glow effect to add emotion */
+        .glow-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6, 0 0 40px #9b59b6;
+            opacity: 1;
+            animation: glowFadeOut 3s ease-in-out forwards;
+        }
+
+        /* Keyframes for animations */
+        @keyframes softFadeOut {
             0% { opacity: 1; }
+            50% { opacity: 0.7; }
             100% { opacity: 0; }
         }
+
+        @keyframes glowFadeOut {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; text-shadow: 0 0 15px #9b59b6, 0 0 30px #9b59b6; }
+            100% { opacity: 0; text-shadow: 0 0 5px #9b59b6; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Entry Effect -->
+    <!-- Smooth Entry Effect -->
     <div class="entry-effect"></div>
+    <div class="glow-effect">Welcome to ZeroCoin</div>
 
     <!-- ZRC Logo -->
     <img src="logo.png" alt="ZRC ZeroCoin Logo">
 
     <h1>Welcome to ZRC ZeroCoin</h1>
 
-    <!-- New description about ZeroCoin -->
+    <!-- Updated description about ZeroCoin -->
     <div class="description">
-        <p><strong>ZeroCoin (ZRC)</strong> is a next-generation cryptocurrency designed to bring security, efficiency, and true decentralization.</p>
-        <p>Built on the **Polygon blockchain**, ZRC offers fast transactions, low fees, and a fixed supply of <strong>4.7 million tokens</strong>, ensuring scarcity and long-term value.</p>
-        <p>Join the movement where **DeFi, Smart Contracts, Web3, Tokenomics, and Decentralization** come together to shape the future.</p>
+        <p><strong>ZeroCoin (ZRC)</strong> a new-generation cryptocurrency designed to bring security and efficiency with true decentralization.</p>
+        <p>Built on the <strong>Polygon blockchain</strong>, ZRC offers fast transactions, low fees, and a fixed supply of <strong>4.7 million tokens</strong>, ensuring scalability and long-term value.</p>
     </div>
 
     <!-- Whitepaper Button -->
@@ -90,7 +139,7 @@
 
     <p>Contact us at: <strong>Zerocoinzrc@gmail.com</strong></p>
 
-    <!-- Creator credit -->
+    <!-- Creator credit (Smaller & Bottom-Right) -->
     <p class="creator">Made by Dr. Ahmed Mohamed Daffalla</p>
 
 </body>
