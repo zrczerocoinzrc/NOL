@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,73 +45,97 @@
             margin-top: 20px;
             opacity: 0;
             animation: fadeIn 2s ease-out forwards 1.5s;
-        }/* Entry Effect: Popping Coins */
-    .entry-effect {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(18, 18, 18, 0.9);
-        opacity: 1;
-        pointer-events: none;
-        animation: fadeOutOverlay 2.5s ease-out forwards;
-    }
-
-    .coin {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background: radial-gradient(circle, rgba(75,0,130,0.9), rgba(0,0,0,0.7));
-        border-radius: 50%;
-        box-shadow: 0 0 10px rgba(128,0,128,0.8);
-        animation: popCoin 1s ease-out forwards;
-    }
-
-    @keyframes popCoin {
-        0% { transform: scale(0); opacity: 1; }
-        70% { transform: scale(1.5); opacity: 0.7; }
-        100% { transform: scale(1); opacity: 0; }
-    }
-
-    @keyframes fadeOutOverlay {
-        from { opacity: 1; }
-        to { opacity: 0; }
-    }
-    @keyframes fadeInDown {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-</style>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        for (let i = 0; i < 10; i++) {
-            let coin = document.createElement("div");
-            coin.classList.add("coin");
-            coin.style.left = Math.random() * 100 + "vw";
-            coin.style.top = Math.random() * 100 + "vh";
-            document.body.appendChild(coin);
-            setTimeout(() => coin.remove(), 1000);
         }
-    });
-</script>
 
+        /* Crypto-style text for creator's name */
+        .creator {
+            font-family: "Orbitron", sans-serif;
+            font-size: 12px;
+            color: #9b59b6;
+            position: fixed;
+            bottom: 10px;
+            right: 15px;
+            text-align: right;
+            opacity: 0.7;
+        }
+
+        /* Updated Modern Entry Effects */
+        .entry-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 18, 18, 0.9); /* Subtle, solid dark overlay */
+            opacity: 1;
+            pointer-events: none;
+            animation: fadeOutOverlay 2.5s ease-out forwards;
+        }
+
+        .glow-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;      /* Slightly smaller */
+            font-weight: 600;
+            color: #ddd;          /* Light, modern tone */
+            text-shadow: 0 0 5px rgba(155, 89, 182, 0.5); /* Minimal shadow */
+            opacity: 1;
+            animation: fadeOutText 2.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeOutOverlay {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes fadeOutText {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="entry-effect"></div>
-    <h1>Welcome to ZRC ZeroCoin</h1>
-    <img src="logo.png" alt="ZRC ZeroCoin Logo"><div class="description">
-    <p><strong>ZeroCoin (ZRC)</strong> a new-generation cryptocurrency designed to bring security and efficiency with true decentralization.</p>
-    <p>Built on the <strong>Polygon blockchain</strong>, ZRC offers fast transactions, low fees, and a fixed supply of <strong>4.7 million tokens</strong>, ensuring scalability and long-term value.</p>
-</div>
 
-<a href="whitepaper.html" class="btn">Read Whitepaper</a>
-<p>Contact us at: <strong>Zerocoinzrc@gmail.com</strong></p>
-<p class="creator">Made by Dr. Ahmed Mohamed Daffalla</p>
+    <!-- Updated Modern Entry Effects -->
+    <div class="entry-effect"></div>
+    <div class="glow-effect">Welcome to ZeroCoin</div>
+
+    <!-- ZRC Logo -->
+    <img src="logo.png" alt="ZRC ZeroCoin Logo">
+
+    <h1>Welcome to ZRC ZeroCoin</h1>
+
+    <!-- Updated description about ZeroCoin -->
+    <div class="description">
+        <p><strong>ZeroCoin (ZRC)</strong> a new-generation cryptocurrency designed to bring security and efficiency with true decentralization.</p>
+        <p>Built on the <strong>Polygon blockchain</strong>, ZRC offers fast transactions, low fees, and a fixed supply of <strong>4.7 million tokens</strong>, ensuring scalability and long-term value.</p>
+    </div>
+
+    <!-- Whitepaper Button -->
+    <a href="whitepaper.html" class="btn">Read Whitepaper</a>
+
+    <p>Contact us at: <strong>Zerocoinzrc@gmail.com</strong></p>
+
+    <!-- Creator credit (Smaller & Bottom-Right) -->
+    <p class="creator">Made by Dr. Ahmed Mohamed Daffalla</p>
 
 </body>
 </html>
