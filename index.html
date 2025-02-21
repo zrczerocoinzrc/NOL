@@ -44,87 +44,72 @@
             margin-top: 20px;
             opacity: 0;
             animation: fadeIn 2s ease-out forwards 1.5s;
-        }/* Crypto-style text for creator's name */
-    .creator {
-        font-family: "Orbitron", sans-serif;
-        font-size: 12px;
-        color: #9b59b6;
+        }/* Entry Effect: Popping Coins */
+    .entry-effect {
         position: fixed;
-        bottom: 10px;
-        right: 15px;
-        text-align: right;
-        opacity: 0.7;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(18, 18, 18, 0.9);
+        opacity: 1;
+        pointer-events: none;
+        animation: fadeOutOverlay 2.5s ease-out forwards;
     }
 
-    /* Coin Pop Animation */
-    .coin-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100px;
-        height: 100px;
-        animation: popEffect 1.5s ease-out forwards;
-    }
-    
     .coin {
-        width: 100px;
-        height: 100px;
-        background: url('coin.png') no-repeat center/contain;
-        position: relative;
-        opacity: 0;
-        animation: fadeInCoin 2s ease-in-out forwards;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: radial-gradient(circle, rgba(75,0,130,0.9), rgba(0,0,0,0.7));
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(128,0,128,0.8);
+        animation: popCoin 1s ease-out forwards;
     }
 
-    @keyframes fadeInCoin {
-        from { opacity: 0; transform: scale(0.5); }
-        to { opacity: 1; transform: scale(1); }
+    @keyframes popCoin {
+        0% { transform: scale(0); opacity: 1; }
+        70% { transform: scale(1.5); opacity: 0.7; }
+        100% { transform: scale(1); opacity: 0; }
     }
 
-    @keyframes popEffect {
-        0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-        50% { transform: translate(-50%, -60%) scale(1.2); opacity: 1; }
-        100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    @keyframes fadeOutOverlay {
+        from { opacity: 1; }
+        to { opacity: 0; }
     }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
     @keyframes fadeInDown {
         from { opacity: 0; transform: translateY(-20px); }
         to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes fadeInUp {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        for (let i = 0; i < 10; i++) {
+            let coin = document.createElement("div");
+            coin.classList.add("coin");
+            coin.style.left = Math.random() * 100 + "vw";
+            coin.style.top = Math.random() * 100 + "vh";
+            document.body.appendChild(coin);
+            setTimeout(() => coin.remove(), 1000);
+        }
+    });
+</script>
 
 </head>
 <body>
-    <div class="coin-container">
-        <div class="coin"></div>
-    </div><!-- ZRC Logo -->
-<img src="logo.png" alt="ZRC ZeroCoin Logo">
-
-<h1>Welcome to ZRC ZeroCoin</h1>
-
-<!-- Updated description about ZeroCoin -->
-<div class="description">
+    <div class="entry-effect"></div>
+    <h1>Welcome to ZRC ZeroCoin</h1>
+    <img src="logo.png" alt="ZRC ZeroCoin Logo"><div class="description">
     <p><strong>ZeroCoin (ZRC)</strong> a new-generation cryptocurrency designed to bring security and efficiency with true decentralization.</p>
     <p>Built on the <strong>Polygon blockchain</strong>, ZRC offers fast transactions, low fees, and a fixed supply of <strong>4.7 million tokens</strong>, ensuring scalability and long-term value.</p>
 </div>
 
-<!-- Whitepaper Button -->
 <a href="whitepaper.html" class="btn">Read Whitepaper</a>
-
 <p>Contact us at: <strong>Zerocoinzrc@gmail.com</strong></p>
-
-<!-- Creator credit (Smaller & Bottom-Right) -->
 <p class="creator">Made by Dr. Ahmed Mohamed Daffalla</p>
 
 </body>
