@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZRC ZeroCoin</title>
     <style>
+        /* General styles */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -12,6 +13,8 @@
             color: white;
             margin: 0;
             padding: 50px;
+            position: relative;
+            overflow: hidden;
         }
         img {
             width: 200px;
@@ -35,20 +38,60 @@
             border-radius: 8px;
             margin-top: 20px;
         }
+
+        /* Crypto-style text for creator's name */
+        .creator {
+            font-family: "Orbitron", sans-serif;
+            font-size: 14px;
+            color: #9b59b6;
+            margin-top: 50px;
+            letter-spacing: 2px;
+        }
+
+        /* Entry effect */
+        .entry-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(128,0,128,0.8), transparent);
+            opacity: 1;
+            pointer-events: none;
+            animation: fadeOut 3s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Entry Effect -->
+    <div class="entry-effect"></div>
 
     <!-- ZRC Logo -->
     <img src="logo.png" alt="ZRC ZeroCoin Logo">
 
     <h1>Welcome to ZRC ZeroCoin</h1>
-    <p>The revolutionary cryptocurrency with a fixed supply, real impact, and a community-driven mission.</p>
+
+    <!-- New description about ZeroCoin -->
+    <div class="description">
+        <p><strong>ZeroCoin (ZRC)</strong> is a next-generation cryptocurrency designed to bring security, efficiency, and true decentralization.</p>
+        <p>Built on the **Polygon blockchain**, ZRC offers fast transactions, low fees, and a fixed supply of <strong>4.7 million tokens</strong>, ensuring scarcity and long-term value.</p>
+        <p>Join the movement where **DeFi, Smart Contracts, Web3, Tokenomics, and Decentralization** come together to shape the future.</p>
+    </div>
 
     <!-- Whitepaper Button -->
     <a href="whitepaper.html" class="btn">Read Whitepaper</a>
 
     <p>Contact us at: <strong>Zerocoinzrc@gmail.com</strong></p>
+
+    <!-- Creator credit -->
+    <p class="creator">Made by Dr. Ahmed Mohamed Daffalla</p>
 
 </body>
 </html>
