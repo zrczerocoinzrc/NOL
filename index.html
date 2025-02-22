@@ -1,156 +1,173 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZRC ZeroCoin</title>
-    <style>
-        /* General styles */
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #121212;
-            color: white;
-            margin: 0;
-            padding: 50px;
-            position: relative;
-            overflow: hidden;
-        }
-        img {
-            width: 200px;
-            border-radius: 50%;
-        }
-        h1 {
-            font-size: 36px;
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeInDown 1.5s ease-out forwards 1s;
-        }
-        p {
-            font-size: 18px;
-            margin: 20px auto;
-            max-width: 600px;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeInUp 1.5s ease-out forwards 1.2s;
-        }
-        .btn {
-            display: inline-block;
-            padding: 15px 25px;
-            font-size: 18px;
-            background-color: #ffcc00;
-            color: #121212;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-top: 20px;
-            opacity: 0;
-            animation: fadeIn 2s ease-out forwards 1.5s;
-        }
-        /* Crypto-style text for creator's name */
-        .creator {
-            font-family: "Orbitron", sans-serif;
-            font-size: 12px;
-            color: #9b59b6;
-            position: fixed;
-            bottom: 10px;
-            right: 15px;
-            text-align: right;
-            opacity: 0.7;
-        }/* Background coin animation */
-    .coin {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background: radial-gradient(circle, #6a0dad, #3a0a5b);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        font-weight: bold;
-        color: white;
-        text-shadow: 0 0 5px #fff;
-        opacity: 0.8;
-        animation: fall linear infinite;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZRC ZeroCoin</title>
+  <style>
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #121212;
+      color: white;
+      margin: 0;
+      padding: 50px;
+      position: relative;
+      overflow: hidden;
     }
-    
-    @keyframes fall {
-        from {
-            transform: translateY(-100vh);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(100vh);
-            opacity: 1;
-        }
+    /* Wrap content in a higher z-index container */
+    .content {
+      position: relative;
+      z-index: 10;
     }
-    
+    img {
+      width: 200px;
+      border-radius: 50%;
+    }
+    h1 {
+      font-size: 36px;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInDown 1.5s ease-out forwards 1s;
+    }
+    p {
+      font-size: 18px;
+      margin: 20px auto;
+      max-width: 600px;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 1.5s ease-out forwards 1.2s;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      font-size: 18px;
+      background-color: #ffcc00;
+      color: #121212;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards 1.5s;
+    }
+    .creator {
+      font-family: "Orbitron", sans-serif;
+      font-size: 12px;
+      color: #9b59b6;
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      text-align: right;
+      opacity: 0.7;
+      z-index: 10;
+    }
     /* Entry effects */
     .entry-effect {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(18, 18, 18, 0.9);
-        opacity: 1;
-        pointer-events: none;
-        animation: fadeOutOverlay 2.5s ease-out forwards;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(18, 18, 18, 0.9);
+      opacity: 1;
+      pointer-events: none;
+      animation: fadeOutOverlay 2.5s ease-out forwards;
+      z-index: 10;
     }
     .glow-effect {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 40px;
-        font-weight: 600;
-        color: #ddd;
-        text-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
-        opacity: 1;
-        animation: fadeOutText 2.5s ease-in-out forwards;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      font-weight: 600;
+      color: #ddd;
+      text-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
+      opacity: 1;
+      animation: fadeOutText 2.5s ease-in-out forwards;
+      z-index: 10;
     }
     @keyframes fadeOutOverlay {
-        from { opacity: 1; }
-        to { opacity: 0; }
+      from { opacity: 1; }
+      to { opacity: 0; }
     }
     @keyframes fadeOutText {
-        from { opacity: 1; }
-        to { opacity: 0; }
+      from { opacity: 1; }
+      to { opacity: 0; }
     }
     @keyframes fadeInDown {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-</style>
-<script>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* Background coin animation */
+    .coin {
+      position: absolute;
+      z-index: 1; /* Behind main content */
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, #6a0dad, #3a0a5b);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 5px #fff;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
-        for (let i = 0; i < 15; i++) {
-            let coin = document.createElement("div");
-            coin.classList.add("coin");
-            coin.innerHTML = "∞"; // Infinity symbol
-            coin.style.left = Math.random() * window.innerWidth + "px";
-            coin.style.animationDuration = Math.random() * 5 + 3 + "s";
-            document.body.appendChild(coin);
-            setTimeout(() => { coin.remove(); }, 8000);
-        }
+      function createCoin() {
+        let coin = document.createElement("div");
+        coin.classList.add("coin");
+        coin.innerHTML = "∞"; // Infinity symbol
+        coin.style.left = Math.random() * window.innerWidth + "px";
+        // Set coin starting position below the whitepaper button (approx. 70% of viewport height)
+        coin.style.top = (window.innerHeight * 0.7) + "px";
+        coin.style.animationDuration = (Math.random() * 5 + 3) + "s";
+        document.body.appendChild(coin);
+        setTimeout(() => { coin.remove(); }, (parseFloat(coin.style.animationDuration) * 1000));
+      }
+      setInterval(createCoin, 400);
     });
-</script>
-
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="entry-effect"></div>
-    <div class="glow-effect">Welcome to ZeroCoin</div>
+  <div class="entry-effect"></div>
+  <div class="glow-effect">Welcome to ZeroCoin</div>
+  <div class="content">
     <img src="logo.png" alt="ZRC ZeroCoin Logo">
     <h1>Welcome to ZRC ZeroCoin</h1>
     <div class="description">
-        <p><strong>ZeroCoin (ZRC)</strong> a new-generation cryptocurrency designed to bring security and efficiency with true decentralization.</p>
-        <p>Built on the <strong>Polygon blockchain</strong>, ZRC offers fast transactions, low fees, and a fixed supply of <strong>4.7 million tokens</strong>, ensuring scalability and long-term value.</p>
+      <p><strong>ZeroCoin (ZRC)</strong> a new-generation cryptocurrency designed to bring security and efficiency with true decentralization.</p>
+      <p>Built on the <strong>Polygon blockchain</strong>, ZRC offers fast transactions, low fees, and a fixed supply of <strong>4.7 million tokens</strong>, ensuring scalability and long-term value.</p>
     </div>
     <a href="whitepaper.html" class="btn">Read Whitepaper</a>
     <p>Contact us at: <strong>Zerocoinzrc@gmail.com</strong></p>
-    <p class="creator">Made by Dr. Ahmed Mohamed Daffalla</p>
+  </div>
+  <p class="creator">Made by Dr. Ahmed Mohamed Daffalla</p>
 </body>
 </html>
