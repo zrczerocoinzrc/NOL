@@ -2,159 +2,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZRC ZeroCoin</title>
+    <title>ZeroCoin (ZRC)</title>
     <style>
-        /* General styles */
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #121212;
-            color: white;
             margin: 0;
-            padding: 50px;
-            position: relative;
             overflow: hidden;
+            background-color: #0a0a0a;
+            color: white;
+            font-family: Arial, sans-serif;
         }
-        img {
-            width: 200px;
+        .coin {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, darkpurple, black);
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            opacity: 1;
+            transform: rotate(90deg);
+            animation: fall linear infinite;
         }
-        h1 {
-            font-size: 36px;
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeInDown 1.5s ease-out forwards 1s;
+        @keyframes fall {
+            0% {
+                transform: translateY(100vh) rotate(90deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(90deg);
+                opacity: 0;
+            }
         }
-        p {
-            font-size: 18px;
-            margin: 20px auto;
-            max-width: 600px;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeInUp 1.5s ease-out forwards 1.2s;
-        }
-        .btn {
-            display: inline-block;
-            padding: 15px 25px;
-            font-size: 18px;
-            background-color: #ffcc00;
-            color: #121212;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-top: 20px;
-            opacity: 0;
-            animation: fadeIn 2s ease-out forwards 1.5s;
-        }
-        .creator {
-            font-family: "Orbitron", sans-serif;
-            font-size: 12px;
-            color: #9b59b6;
-            position: fixed;
-            bottom: 10px;
-            right: 15px;
-            text-align: right;
-            opacity: 0.7;
-        }/* Updated Modern Entry Effects */
-    .entry-effect {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(18, 18, 18, 0.9);
-        opacity: 1;
-        pointer-events: none;
-        animation: fadeOutOverlay 2.5s ease-out forwards;
-    }
-
-    .glow-effect {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 40px;
-        font-weight: 600;
-        color: #ddd;
-        text-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
-        opacity: 1;
-        animation: fadeOutText 2.5s ease-in-out forwards;
-    }
-
-    /* Coin Animation */
-    .coin-container {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        pointer-events: none;
-    }
-
-    .coin {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background: radial-gradient(circle, #7e57c2, #121212);
-        border-radius: 50%;
-        box-shadow: 0 0 10px rgba(126, 87, 194, 0.8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        font-weight: bold;
-        color: white;
-        opacity: 0;
-        animation: fadeInCoin 5s linear infinite;
-    }
-
-    @keyframes fadeOutOverlay {
-        from { opacity: 1; }
-        to { opacity: 0; }
-    }
-
-    @keyframes fadeOutText {
-        from { opacity: 1; }
-        to { opacity: 0; }
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    @keyframes fadeInDown {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInCoin {
-        0% { opacity: 0; transform: translateY(100vh) scale(0.5); }
-        50% { opacity: 1; transform: translateY(50vh) scale(1); }
-        100% { opacity: 0; transform: translateY(-10vh) scale(0.5); }
-    }
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-
+    </style>
 </head>
 <body>
-    <div class="entry-effect"></div>
-    <div class="glow-effect">Welcome to ZeroCoin</div><div class="coin-container">
-    <div class="coin">∞</div>
-</div>
-
-<img src="logo.png" alt="ZRC ZeroCoin Logo">
-<h1>Welcome to ZRC ZeroCoin</h1>
-<div class="description">
-    <p><strong>ZeroCoin (ZRC)</strong> a new-generation cryptocurrency designed to bring security and efficiency with true decentralization.</p>
-    <p>Built on the <strong>Polygon blockchain</strong>, ZRC offers fast transactions, low fees, and a fixed supply of <strong>4.7 million tokens</strong>, ensuring scalability and long-term value.</p>
-</div>
-<a href="whitepaper.html" class="btn">Read Whitepaper</a>
-<p>Contact us at: <strong>Zerocoinzrc@gmail.com</strong></p>
-<p class="creator">Made by Dr. Ahmed Mohamed Daffalla</p>
+    <script>
+        function createCoin() {
+            const coin = document.createElement("div");
+            coin.classList.add("coin");
+            coin.innerHTML = "∞";
+            document.body.appendChild(coin);const startLeft = Math.random() * window.innerWidth;
+        const duration = Math.random() * 5 + 5;
+        const size = Math.random() * 20 + 30;
+        
+        coin.style.left = `${startLeft}px`;
+        coin.style.animationDuration = `${duration}s`;
+        coin.style.width = `${size}px`;
+        coin.style.height = `${size}px`;
+        coin.style.fontSize = `${size / 1.5}px`;
+        
+        setTimeout(() => coin.remove(), duration * 1000);
+    }
+    setInterval(createCoin, 300);
+</script>
 
 </body>
 </html>
