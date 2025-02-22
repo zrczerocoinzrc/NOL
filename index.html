@@ -19,9 +19,19 @@
             width: 200px;
             border-radius: 50%;
         }
-        h1, p, .btn {
-            position: relative;
-            z-index: 10;
+        h1 {
+            font-size: 36px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 1.5s ease-out forwards 1s;
+        }
+        p {
+            font-size: 18px;
+            margin: 20px auto;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 1.5s ease-out forwards 1.2s;
         }
         .btn {
             display: inline-block;
@@ -32,7 +42,10 @@
             text-decoration: none;
             border-radius: 8px;
             margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards 1.5s;
         }
+        /* Crypto-style text for creator's name */
         .creator {
             font-family: "Orbitron", sans-serif;
             font-size: 12px;
@@ -42,52 +55,94 @@
             right: 15px;
             text-align: right;
             opacity: 0.7;
-        }/* Background falling coins effect */
+        }/* Background coin animation */
     .coin {
         position: absolute;
         width: 50px;
         height: 50px;
-        background-color: #6a0dad;
+        background: radial-gradient(circle, #6a0dad, #3a0a5b);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 28px;
-        color: black;
+        font-size: 24px;
         font-weight: bold;
+        color: white;
+        text-shadow: 0 0 5px #fff;
         opacity: 0.8;
         animation: fall linear infinite;
     }
-
+    
     @keyframes fall {
         from {
-            transform: translateY(-100px) scale(1);
-            opacity: 1;
-        }
-        to {
-            transform: translateY(100vh) scale(0.8);
+            transform: translateY(-100vh);
             opacity: 0;
         }
+        to {
+            transform: translateY(100vh);
+            opacity: 1;
+        }
+    }
+    
+    /* Entry effects */
+    .entry-effect {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(18, 18, 18, 0.9);
+        opacity: 1;
+        pointer-events: none;
+        animation: fadeOutOverlay 2.5s ease-out forwards;
+    }
+    .glow-effect {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 40px;
+        font-weight: 600;
+        color: #ddd;
+        text-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
+        opacity: 1;
+        animation: fadeOutText 2.5s ease-in-out forwards;
+    }
+    @keyframes fadeOutOverlay {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+    @keyframes fadeOutText {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 </style>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        function createCoin() {
-            const coin = document.createElement("div");
+    document.addEventListener("DOMContentLoaded", function () {
+        for (let i = 0; i < 15; i++) {
+            let coin = document.createElement("div");
             coin.classList.add("coin");
-            coin.innerHTML = "&#8734;";  // Infinity symbol (∞) rotated as 0
+            coin.innerHTML = "∞"; // Infinity symbol
             coin.style.left = Math.random() * window.innerWidth + "px";
-            coin.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            coin.style.animationDuration = Math.random() * 5 + 3 + "s";
             document.body.appendChild(coin);
-            setTimeout(() => coin.remove(), 5000);
+            setTimeout(() => { coin.remove(); }, 8000);
         }
-        setInterval(createCoin, 400);
     });
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 
 </head>
 <body>
+    <div class="entry-effect"></div>
+    <div class="glow-effect">Welcome to ZeroCoin</div>
     <img src="logo.png" alt="ZRC ZeroCoin Logo">
     <h1>Welcome to ZRC ZeroCoin</h1>
     <div class="description">
