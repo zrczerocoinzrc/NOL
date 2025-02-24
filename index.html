@@ -1,18 +1,30 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZRC ZeroCoin</title>
   <style>
+    /* Global Styles */
     body {
-      font-family: 'Orbitron', sans-serif;
+      font-family: Arial, sans-serif;
       text-align: center;
       background-color: #121212;
       color: white;
       margin: 0;
       padding: 50px;
       position: relative;
-      overflow: hidden;
+    }
+    /* Infinity background watermark */
+    body::before {
+      content: '∞';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      font-size: 300px;
+      opacity: 0.05;
+      transform: translate(-50%, -50%);
+      z-index: 0;
     }
     .content {
       position: relative;
@@ -55,6 +67,7 @@
     .section h2 {
       color: #ffcc00;
       font-size: 28px;
+      margin-bottom: 10px;
     }
     .creator {
       font-size: 14px;
@@ -62,7 +75,9 @@
       position: fixed;
       bottom: 10px;
       right: 15px;
+      z-index: 10;
     }
+    /* Entry animations */
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -75,42 +90,78 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    /* Background coin animation */
+    .coin {
+      position: absolute;
+      z-index: 5;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, #6a0dad, #3a0a5b);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 5px #fff;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="content">
     <img src="logo1.png" alt="ZRC ZeroCoin Logo">
     <h1>ZRC ZeroCoin</h1>
-    <p>The next-generation cryptocurrency built on the Polygon blockchain, offering security, efficiency, and true decentralization.</p>
-    <a href="whitepaper.html" class="btn">Read Whitepaper</a><div class="section">
-  <h2>Tokenomics</h2>
-  <p>Total Supply: <strong>4.7 million ZRC</strong></p>
-  <p>Fixed supply with no additional minting or modifications.</p>
-</div>
-
-<div class="section">
-  <h2>Technical Specifications</h2>
-  <p>Blockchain: <strong>Polygon (MATIC)</strong></p>
-  <p>Decimals: <strong>8</strong></p>
-  <p>Fast transactions, low fees, and high scalability.</p>
-</div>
-
-<div class="section">
-  <h2>Roadmap</h2>
-  <p>2025 Q1-Q2: <strong>Launch & Community Growth</strong></p>
-  <p>2025 Q3-Q4: <strong>Exchange Listings</strong></p>
-  <p>2026+: <strong>Real-World Utility Development</strong></p>
-</div>
-
-<div class="section">
-  <h2>Legal Disclaimer</h2>
-  <p>ZeroCoin is not financial advice. Users must comply with local laws and regulations.</p>
-</div>
-
-<p>Contact us at: <strong>Zerocoinzrc@gmail.com</strong></p>
-
+    <p>The next-generation decentralized cryptocurrency on Polygon, designed for security, efficiency, and infinite possibilities.</p>
+    <a href="whitepaper.html" class="btn">Read Whitepaper</a>
+    
+    <div class="section">
+      <h2>Tokenomics</h2>
+      <p>Total Supply: <strong>4.7 million ZRC</strong> with a fixed supply and no additional minting.</p>
+    </div>
+    
+    <div class="section">
+      <h2>Technical Specifications</h2>
+      <p>Blockchain: <strong>Polygon (MATIC)</strong></p>
+      <p>Decimals: <strong>8</strong> – Fast transactions, low fees, and high scalability.</p>
+    </div>
+    
+    <div class="section">
+      <h2>Roadmap</h2>
+      <p>2025 Q1-Q2: Launch & Community Building</p>
+      <p>2025 Q3-Q4: Exchange Listings</p>
+      <p>2026+: Real-World Utility & Ecosystem Development</p>
+    </div>
+    
+    <div class="section">
+      <h2>Legal Disclaimer</h2>
+      <p>This is not financial advice. Users must comply with local laws and regulations.</p>
+    </div>
+    
+    <p>Contact us: <strong>Zerocoinzrc@gmail.com</strong></p>
   </div>
   <p class="creator">Made by Dr. Ahmed Mohamed Daffalla</p>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function createCoin() {
+        let coin = document.createElement('div');
+        coin.classList.add('coin');
+        coin.innerHTML = '∞'; // Infinity symbol
+        coin.style.left = Math.random() * window.innerWidth + 'px';
+        coin.style.top = '-50px'; // Start above the viewport
+        coin.style.animationDuration = (Math.random() * 5 + 3) + 's';
+        document.body.appendChild(coin);
+        setTimeout(() => { coin.remove(); }, (parseFloat(coin.style.animationDuration) * 1000));
+      }
+      setInterval(createCoin, 400);
+    });
+  </script>
 </body>
 </html>
