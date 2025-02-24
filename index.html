@@ -58,110 +58,17 @@
       margin: 20px auto;
       animation: fadeIn 2s ease-out forwards 1.5s;
     }
+    /* Modern card style for sections */
     .section {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
       padding: 20px;
       border-radius: 12px;
       margin-top: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     .section h2 {
       color: #ffcc00;
       font-size: 28px;
-      margin-bottom: 10px;
-    }
-    .creator {
-      font-size: 14px;
-      color: #9b59b6;
-      position: fixed;
-      bottom: 10px;
-      right: 15px;
-      z-index: 10;
-    }
-    /* Entry animations */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    /* Background coin animation */
-    .coin {
-      position: absolute;
-      z-index: 5;
-      width: 50px;
-      height: 50px;
-      background: radial-gradient(circle, #6a0dad, #3a0a5b);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      font-weight: bold;
-      color: white;
-      text-shadow: 0 0 5px #fff;
-      opacity: 0.8;
-      animation: fall linear infinite;
-    }
-    @keyframes fall {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
-    }
-  </style>
-</head>
-<body>
-  <div class="content">
-    <img src="logo1.png" alt="ZRC ZeroCoin Logo">
-    <h1>ZRC ZeroCoin</h1>
-    <p>The next-generation decentralized cryptocurrency on Polygon, designed for security, efficiency, and infinite possibilities.</p>
-    <a href="whitepaper.html" class="btn">Read Whitepaper</a>
-    
-    <div class="section">
-      <h2>Tokenomics</h2>
-      <p>Total Supply: <strong>4.7 million ZRC</strong> with a fixed supply and no additional minting.</p>
-    </div>
-    
-    <div class="section">
-      <h2>Technical Specifications</h2>
-      <p>Blockchain: <strong>Polygon (MATIC)</strong></p>
-      <p>Decimals: <strong>8</strong> – Fast transactions, low fees, and high scalability.</p>
-    </div>
-    
-    <div class="section">
-      <h2>Roadmap</h2>
-      <p>2025 Q1-Q2: Launch & Community Building</p>
-      <p>2025 Q3-Q4: Exchange Listings</p>
-      <p>2026+: Real-World Utility & Ecosystem Development</p>
-    </div>
-    
-    <div class="section">
-      <h2>Legal Disclaimer</h2>
-      <p>This is not financial advice. Users must comply with local laws and regulations.</p>
-    </div>
-    
-    <p>Contact us: <strong>Zerocoinzrc@gmail.com</strong></p>
-  </div>
-  <p class="creator">Made by Dr. Ahmed Mohamed Daffalla</p>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      function createCoin() {
-        let coin = document.createElement('div');
-        coin.classList.add('coin');
-        coin.innerHTML = '∞'; // Infinity symbol
-        coin.style.left = Math.random() * window.innerWidth + 'px';
-        coin.style.top = '-50px'; // Start above the viewport
-        coin.style.animationDuration = (Math.random() * 5 + 3) + 's';
-        document.body.appendChild(coin);
-        setTimeout(() => { coin.remove(); }, (parseFloat(coin.style.animationDuration) * 1000));
-      }
-      setInterval(createCoin, 400);
-    });
-  </script>
-</body>
-</html>
+      margin-bottom: 10
