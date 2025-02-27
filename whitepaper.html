@@ -5,59 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZRC ZeroCoin Whitepaper</title>
     <style>
-        /* Smooth scrolling and modern animations */
+        /* Reset & Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         html {
             scroll-behavior: smooth;
         }
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            background-color: #2a0a5e;
+            background: #1a0033; /* Dark Purple */
             color: white;
-            margin: 0;
             padding: 50px;
             position: relative;
             overflow: hidden;
         }
-        /* Fancy thin random crossed lines in the background */
+
+        /* Background with animated glowing nebula */
         body::before {
             content: "";
-            position: absolute;
+            position: fixed;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(98, 0, 234, 0.3) 0%, rgba(26, 0, 51, 1) 60%);
+            animation: pulse 6s infinite alternate ease-in-out;
+            z-index: -1;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.7; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* Glowing Animated Lines */
+        .animated-lines {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
-            background-size: 40px 40px;
-            opacity: 0.2;
+            pointer-events: none;
             z-index: -1;
         }
-        h1 {
-            font-size: 42px;
-            font-weight: bold;
+        .animated-lines::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            opacity: 0.1;
         }
+
+        /* Title */
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Paragraph */
         p {
             font-size: 20px;
-            margin: 20px auto;
+            margin: 15px auto;
             max-width: 700px;
+            line-height: 1.6;
+            color: #d1c4ff;
         }
+
+        /* Glowing Button */
         .btn {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 15px 35px;
             font-size: 20px;
-            background: linear-gradient(135deg, #ffcc00, #ff9900);
-            color: #2a0a5e;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-top: 20px;
             font-weight: bold;
-            transition: 0.3s ease-in-out;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffcc00, #ff6600);
+            color: #1a0033;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+            transition: all 0.3s ease-in-out;
         }
         .btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 204, 0, 1);
         }
+
+        /* Info Box */
         .info {
-            background-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1);
             padding: 25px;
             border-radius: 12px;
             margin-top: 40px;
@@ -66,40 +109,46 @@
             margin-right: auto;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
-        /* Contact section */
+
+        /* Contact Floating Section */
         .contact {
             position: fixed;
-            left: 10px;
-            bottom: 10px;
-            font-size: 14px;
-            color: #ffffff;
+            left: 20px;
+            bottom: 20px;
             text-align: left;
+            font-size: 16px;
+            color: #ffffff;
         }
         .contact a {
             display: flex;
             align-items: center;
             color: #ffcc00;
             text-decoration: none;
-            margin-bottom: 8px;
-            transition: 0.3s ease-in-out;
+            margin-bottom: 10px;
+            transition: all 0.3s ease-in-out;
         }
         .contact a:hover {
             color: #ff9900;
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         .contact img {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             margin-right: 8px;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
         }
     </style>
 </head>
 <body>
 
+    <!-- Animated Background -->
+    <div class="animated-lines"></div>
+
     <h1>ZRC ZeroCoin Whitepaper</h1>
-    <p>Click the button below to view the official ZRC ∞ ZeroCoin Whitepaper.</p>
+    <p>Click below to access the official ZRC ∞ ZeroCoin Whitepaper.</p>
     <a href="whitepaper1.pdf" class="btn" target="_blank">View Whitepaper</a>
 
+    <!-- Coin Details Section -->
     <div class="info">
         <h2>Coin Details</h2>
         <p><strong>Decimals:</strong> 8</p>
@@ -110,7 +159,7 @@
     <br>
     <a href="index.html" class="btn">Home</a>
 
-    <!-- Contact Section with Icons -->
+    <!-- Contact Section -->
     <div class="contact">
         <a href="https://t.me/+VXpUXhYeLVYzY2Rk" target="_blank">
             <img src="telegram-icon.png" alt="Telegram"> Telegram
