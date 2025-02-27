@@ -1,62 +1,130 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZRC ZeroCoin Whitepaper</title>
     <style>
+        /* Smooth scrolling and modern animations */
+        html {
+            scroll-behavior: smooth;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
             background-color: #2a0a5e;
             color: white;
             margin: 0;
             padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Fancy thin random crossed lines in the background */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+            background-size: 40px 40px;
+            opacity: 0.2;
+            z-index: -1;
         }
         h1 {
-            font-size: 34px;
+            font-size: 42px;
+            font-weight: bold;
         }
         p {
-            font-size: 18px;
+            font-size: 20px;
             margin: 20px auto;
-            max-width: 600px;
+            max-width: 700px;
         }
         .btn {
             display: inline-block;
-            padding: 15px 25px;
-            font-size: 18px;
-            background-color: #ffcc00;
+            padding: 15px 30px;
+            font-size: 20px;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
             color: #2a0a5e;
             text-decoration: none;
             border-radius: 8px;
             margin-top: 20px;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
+        .btn:hover {
+            transform: scale(1.05);
         }
         .info {
             background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-            max-width: 600px;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 40px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        /* Contact section */
+        .contact {
+            position: fixed;
+            left: 10px;
+            bottom: 10px;
+            font-size: 14px;
+            color: #ffffff;
+            text-align: left;
+        }
+        .contact a {
+            display: flex;
+            align-items: center;
+            color: #ffcc00;
+            text-decoration: none;
+            margin-bottom: 8px;
+            transition: 0.3s ease-in-out;
+        }
+        .contact a:hover {
+            color: #ff9900;
+            transform: scale(1.05);
+        }
+        .contact img {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
         }
     </style>
 </head>
-<body><h1>ZRC ZeroCoin Whitepaper</h1>
-<p>Click the button below to view the official ZRC ∞ ZeroCoin Whitepaper.</p>
+<body>
 
-<a href="whitepaper1.pdf" class="btn" target="_blank"> Whitepaper</a>
+    <h1>ZRC ZeroCoin Whitepaper</h1>
+    <p>Click the button below to view the official ZRC ∞ ZeroCoin Whitepaper.</p>
+    <a href="whitepaper1.pdf" class="btn" target="_blank">View Whitepaper</a>
 
-<div class="info">
-    <h2>Coin Details</h2>
-    <p><strong>Decimals:</strong> 8</p>
-    <p><strong>Total Supply:</strong> 4,702,000 ZRC</p>
-    <p><strong>Contract Address:</strong> 0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79</p>
-</div>
+    <div class="info">
+        <h2>Coin Details</h2>
+        <p><strong>Decimals:</strong> 8</p>
+        <p><strong>Total Supply:</strong> 4,702,000 ZRC</p>
+        <p><strong>Contract Address:</strong> 0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79</p>
+    </div>
 
-<p>Contact us : <strong>Zerocoinzrc@gmail.com</strong></p>
+    <br>
+    <a href="index.html" class="btn">Home</a>
 
-<br>
-<a href="index.html" class="btn"> Home</a>
+    <!-- Contact Section with Icons -->
+    <div class="contact">
+        <a href="https://t.me/+VXpUXhYeLVYzY2Rk" target="_blank">
+            <img src="telegram-icon.png" alt="Telegram"> Telegram
+        </a>
+        <a href="https://x.com/ZeroCoinzrc?t=X8jUyjyCba9TyIEseud3Tw&s=09" target="_blank">
+            <img src="x-icon.png" alt="X"> X (Twitter)
+        </a>
+        <a href="mailto:Zerocoinzrc@gmail.com">
+            <img src="email-icon.png" alt="Email"> Email
+        </a>
+        <a href="https://zrczerocoin.github.io/ZeroCoin/index.html" target="_blank">
+            <img src="website-icon.png" alt="Website"> Website
+        </a>
+    </div>
 
 </body>
 </html>
