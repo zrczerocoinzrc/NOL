@@ -22,9 +22,10 @@
             padding: 50px;
             position: relative;
             overflow: hidden;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        /* Background with animated glowing nebula */
+        /* Background with animated glow */
         body::before {
             content: "";
             position: fixed;
@@ -41,7 +42,7 @@
             100% { opacity: 1; transform: scale(1.1); }
         }
 
-        /* Glowing Animated Lines */
+        /* Animated Light Trails */
         .animated-lines {
             position: fixed;
             top: 0;
@@ -50,6 +51,7 @@
             height: 100%;
             pointer-events: none;
             z-index: -1;
+            animation: fadeIn 2s ease-in-out;
         }
         .animated-lines::before {
             content: "";
@@ -60,7 +62,7 @@
             opacity: 0.1;
         }
 
-        /* Title */
+        /* Text & Sections */
         h1 {
             font-size: 48px;
             font-weight: 700;
@@ -68,37 +70,38 @@
             letter-spacing: 2px;
             margin-bottom: 20px;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            animation: slideDown 1.5s ease-in-out;
         }
-
-        /* Paragraph */
         p {
             font-size: 20px;
             margin: 15px auto;
             max-width: 700px;
             line-height: 1.6;
             color: #d1c4ff;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        /* Glowing Button */
+        /* Glowing Button (Original Color Restored) */
         .btn {
             display: inline-block;
             padding: 15px 35px;
             font-size: 20px;
             font-weight: bold;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffcc00, #ff6600);
+            background: #ffcc00;
             color: #1a0033;
             text-decoration: none;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
             transition: all 0.3s ease-in-out;
+            animation: fadeInUp 1.5s ease-in-out;
         }
         .btn:hover {
             transform: scale(1.1);
             box-shadow: 0 0 30px rgba(255, 204, 0, 1);
         }
 
-        /* Info Box */
+        /* Coin Details Box (Floating Animation) */
         .info {
             background: rgba(255, 255, 255, 0.1);
             padding: 25px;
@@ -108,6 +111,7 @@
             margin-left: auto;
             margin-right: auto;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            animation: float 3s infinite ease-in-out;
         }
 
         /* Contact Floating Section */
@@ -136,6 +140,25 @@
             height: 20px;
             margin-right: 8px;
             filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+        }
+
+        /* Key Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes slideDown {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
         }
     </style>
 </head>
@@ -168,7 +191,7 @@
             <img src="x-icon.png" alt="X"> X (Twitter)
         </a>
         <a href="mailto:Zerocoinzrc@gmail.com">
-            <img src="email-icon.png" alt="Email"> Mail
+            <img src="email-icon.png" alt="Email"> Email
         </a>
         <a href="https://zrczerocoin.github.io/ZeroCoin/index.html" target="_blank">
             <img src="website-icon.png" alt="Website"> Website
