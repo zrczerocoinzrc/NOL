@@ -49,7 +49,7 @@
       margin: 10px auto;
       animation: fadeInUp 1.5s ease-out forwards 1.2s;
     }
-    /* Button */
+    /* Button (Now with Constant Glowing & Bouncing Effect) */
     .btn {
       display: inline-block;
       padding: 15px 30px;
@@ -59,60 +59,75 @@
       text-decoration: none;
       border-radius: 8px;
       margin: 20px auto;
-      animation: fadeIn 2s ease-out forwards 1.5s;
+      animation: glow 1.5s infinite alternate, bounce 2s infinite ease-in-out;
     }
-    /* Stylish Section Cards */
-    .section {
-      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-      padding: 25px;
-      margin: 30px auto;
-      border: 2px solid #ffcc00;
-      border-radius: 20px;
-      max-width: 700px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-      position: relative;
-      transition: transform 0.3s ease;
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px #ffcc00; }
+      100% { box-shadow: 0 0 15px #ffcc00; }
     }
-    .section:hover {
-      transform: scale(1.02);
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
-    .section::before {
-      content: '';
+    /* Floating Coin Effect (Ultra-Smooth with Fading) */
+    .coin {
       position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 4px;
-      background: #ffcc00;
-      border-radius: 2px;
+      z-index: 5;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, #6a0dad, #3a0a5b);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 5px #fff;
+      opacity: 0.5;
+      animation: fall 6s ease-out infinite, fadeOut 6s ease-out infinite;
     }
-    .section h2 {
-      color: #ffcc00;
-      font-size: 28px;
-      margin-bottom: 10px;
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) scale(1);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
     }
-    /* Footer */
-    .creator {
-      font-size: 14px;
-      color: #9b59b6;
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    /* Contact Floating Section */
+    .contact {
       position: fixed;
-      bottom: 10px;
-      right: 15px;
-      z-index: 10;
+      left: 20px;
+      bottom: 20px;
+      text-align: left;
+      font-size: 16px;
+      color: #ffffff;
+      z-index: 1000;
     }
-    /* Entry Animations */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .contact a {
+      display: flex;
+      align-items: center;
+      color: #ffcc00;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: all 0.3s ease-in-out;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .contact a:hover {
+      color: #ff9900;
+      transform: scale(1.1);
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .contact img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
     }
   </style>
 </head>
@@ -167,38 +182,25 @@
     </a>
   </div>
 
-  <!-- Contact Styles -->
-  <style>
-    .contact {
-        position: fixed;
-        left: 20px;
-        bottom: 20px;
-        text-align: left;
-        font-size: 16px;
-        color: #ffffff;
-        z-index: 1000;
-    }
-    .contact a {
-        display: flex;
-        align-items: center;
-        color: #ffcc00;
-        text-decoration: none;
-        margin-bottom: 10px;
-        transition: all 0.3s ease-in-out;
-    }
-    .contact a:hover {
-        color: #ff9900;
-        transform: scale(1.1);
-    }
-    .contact img {
-        width: 20px;
-        height: 20px;
-        margin-right: 8px;
-        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-    }
-  </style>
+  <!-- Falling Coin Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function createCoin() {
+        const coin = document.createElement('div');
+        coin.classList.add('coin');
+        coin.innerHTML = '∞';
+        coin.style.left = Math.random() * window.innerWidth + 'px';
+        coin.style.animationDuration = (Math.random() * 4 + 3) + 's'; // Smooth duration between 3s and 7s
+        document.body.appendChild(coin);
+
+        setTimeout(() => {
+          coin.remove();
+        }, 7000);
+      }
+      setInterval(createCoin, 800);
+    });
+  </script>
 
   <p class="creator">Made by Dr. Ahmed Mohamed Daffalla</p>
-
 </body>
 </html>
