@@ -60,7 +60,7 @@
       color: white;
       text-shadow: 0 0 5px #fff;
       opacity: 0.7;
-      animation: fall 6s linear infinite, fadeOut 6s ease-out infinite;
+      animation: fall 8s linear infinite, fadeOut 8s ease-out infinite;
     }
 
     @keyframes fall {
@@ -97,7 +97,7 @@
       margin: 10px auto;
     }
 
-    /* Whitepaper Button with Beautiful Movement */
+    /* Whitepaper Button with Subtle Movement */
     .btn {
       display: inline-block;
       padding: 15px 30px;
@@ -120,15 +120,15 @@
       50% { transform: translateY(-5px); }
     }
 
-    /* Section Styles */
+    /* New Section Layout */
     .section {
       background: rgba(255, 255, 255, 0.1);
       padding: 25px;
       margin: 30px auto;
       border: 2px solid #ffcc00;
-      border-radius: 20px;
+      border-radius: 15px;
       max-width: 700px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
     }
 
     .section h2 {
@@ -214,6 +214,9 @@
     <a href="mailto:Zerocoinzrc@gmail.com">
         <img src="email-icon.png" alt="Email"> Email
     </a>
+    <a href="https://zrczerocoin.github.io/ZeroCoin/index.html" target="_blank">
+        <img src="website-icon.png" alt="Website"> Website
+    </a>
   </div>
 
   <!-- Falling Coins Script -->
@@ -223,9 +226,9 @@
       coin.classList.add('coin');
       coin.innerHTML = '∞';
       coin.style.left = Math.random() * window.innerWidth + 'px';
-      coin.style.animationDuration = (Math.random() * 5 + 3) + 's';
+      coin.style.animationDuration = (Math.random() * 6 + 3) + 's';
       document.querySelector('.falling-coins').appendChild(coin);
-      setTimeout(() => { coin.remove(); }, 8000);
+      setTimeout(() => { coin.remove(); }, 9000);
     }
     setInterval(createCoin, 700);
   </script>
