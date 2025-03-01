@@ -139,39 +139,44 @@
     }
 
     /* Contact Section - Whitepaper Style */
-.contact {
-    position: fixed;
-    left: 20px;
-    bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+    .contact {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 12px 15px;
-    border-radius: 50px;
-    color: white;
-    font-size: 16px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-}
+    .contact-item {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 14px 18px;
+      border-radius: 50px;
+      color: white;
+      font-size: 17px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    }
 
-.contact-item:hover {
-    background: rgba(255, 204, 0, 0.8);
-    transform: scale(1.05);
-}
+    .contact-item:hover {
+      background: rgba(255, 204, 0, 0.85);
+      transform: scale(1.07);
+    }
 
-.contact-item img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-}
+    .contact-item img {
+      width: 28px;
+      height: 28px;
+      margin-right: 12px;
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+    }
+
+  </style>
+</head>
+<body>
 
   <!-- Falling Coins Container -->
   <div class="falling-coins"></div>
@@ -202,7 +207,7 @@
   </div>
 
   <!-- Contact Floating Section (Whitepaper Style) -->
-<div class="contact">
+  <div class="contact">
     <a href="https://t.me/+VXpUXhYeLVYzY2Rk" target="_blank" class="contact-item">
         <img src="telegram-icon.png" alt="Telegram"> Telegram
     </a>
@@ -215,7 +220,7 @@
     <a href="https://zrczerocoin.github.io/ZeroCoin/index.html" target="_blank" class="contact-item">
         <img src="website-icon.png" alt="Website"> Official Website
     </a>
-</div>
+  </div>
 
   <!-- Falling Coins Script -->
   <script>
@@ -224,7 +229,6 @@
       coin.classList.add('coin');
       coin.innerHTML = '∞';
       coin.style.left = Math.random() * window.innerWidth + 'px';
-      coin.style.animationDuration = (Math.random() * 9 + 6) + 's';
       document.querySelector('.falling-coins').appendChild(coin);
       setTimeout(() => { coin.remove(); }, 16000);
     }
