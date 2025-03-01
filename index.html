@@ -56,7 +56,6 @@
       color: white;
       text-shadow: 0 0 5px #fff;
       opacity: 0.7;
-      /* Fall and fade-out over 20s (adjusted per coin via inline style) */
       animation: fall 20s linear infinite, fadeOut 20s ease-in-out infinite;
     }
     @keyframes fall {
@@ -123,14 +122,11 @@
       font-size: 28px;
       margin-bottom: 10px;
     }
-    /* Contact Floating Section (Circular Icons) */
+    /* Contact Floating Section (New Minimalist Theme) */
     .contact {
       position: fixed;
       left: 20px;
       bottom: 20px;
-      text-align: left;
-      font-size: 16px;
-      color: #ffffff;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -139,25 +135,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 10px;
-      border-radius: 50%;
       width: 45px;
       height: 45px;
-      transition: transform 0.3s ease, background 0.3s ease;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-      overflow: hidden;
+      border: 2px solid #ffcc00;
+      border-radius: 50%;
+      background-color: #1e1e1e;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
     }
     .contact a:hover {
-      background: linear-gradient(135deg, #6a0dad, #ffcc00);
-      transform: scale(1.1);
+      background-color: #2c2c2c;
     }
     .contact img {
-      width: 100%;
-      height: 100%;
+      width: 24px;
+      height: 24px;
       object-fit: cover;
       border-radius: 50%;
-      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
     }
   </style>
 </head>
@@ -193,7 +186,7 @@
     </div>
   </div>
   
-  <!-- Contact Floating Section (Circular Icons) -->
+  <!-- Contact Floating Section (New Minimalist Theme) -->
   <div class="contact">
     <a href="https://t.me/+VXpUXhYeLVYzY2Rk" target="_blank">
       <img src="telegram1-icon.png" alt="Telegram">
