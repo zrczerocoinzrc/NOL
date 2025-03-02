@@ -41,16 +41,19 @@
       height: 100%;
       z-index: -1;
       pointer-events: none;
+      overflow: hidden;
     }
     .coin {
       position: absolute;
-      width: 60px; /* Adjust size for better visibility */
+      width: 60px;
       height: 60px;
-      background-image: url('coin.png'); /* Use realistic coin image */
-      background-size: cover;
+      background-image: url('coin.png'); /* Use a transparent circular coin */
+      background-size: contain;
+      background-repeat: no-repeat;
       background-position: center;
       opacity: 1;
-      animation: fall 12s ease-in-out infinite, fadeOut 12s ease-in-out infinite, rotate 12s linear infinite;
+      filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.5));
+      animation: fall linear infinite, fadeOut ease-in-out infinite, rotate linear infinite;
     }
     @keyframes fall {
       0% { transform: translateY(-50px) scale(1); opacity: 1; }
@@ -198,21 +201,21 @@
       const coin = document.createElement('div');
       coin.classList.add('coin');
 
-      // Random position within the screen width
+      // Random horizontal position within the screen width
       coin.style.left = Math.random() * window.innerWidth + 'px';
 
-      // Random animation duration between 10s and 15s for smoother movement
-      const duration = Math.random() * 5 + 10;
-      coin.style.animationDuration = duration + 's';
+      // Random animation duration between 8s and 12s for smooth variation
+      const duration = Math.random() * 4 + 8;
+      coin.style.animationDuration = `${duration}s, ${duration}s, ${duration}s`;
 
       document.querySelector('.falling-coins').appendChild(coin);
 
       // Remove coin after animation completes
-      setTimeout(() => { coin.remove(); }, duration * 1000 + 500);
+      setTimeout(() => { coin.remove(); }, duration * 1000);
     }
 
-    // Create a new coin every 1.5 seconds
-    setInterval(createCoin, 1500);
+    // Create a new coin every 1.2 seconds
+    setInterval(createCoin, 1200);
   </script>
 </body>
 </html>
