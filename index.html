@@ -1,125 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>ZeroCoin ZRC ∞</title>
-  <!-- Assuming you have your main stylesheet that controls your page theme -->
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Only styles for the falling coins background */
-    .falling-coins {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: -1;
-    }
-    /* Minimal styling for coins so they don't affect your global theme */
-    .coin {
-      position: absolute;
-      /* Use a relative size to keep it slightly smaller without altering your theme’s fonts */
-      font-size: 0.9em;
-      color: inherit;  /* Inherit color or adjust if needed */
-      animation-name: fall;
-      animation-timing-function: linear;
-    }
-    @keyframes fall {
-      0% {
-        transform: translateY(-10%);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(110%);
-        opacity: 1;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="falling-coins"></div>
-  <div class="content">
-    <img src="logo1.png" alt="ZeroCoin ZRC ∞ Logo" class="logo">
-    <h1>ZeroCoin ZRC ∞</h1>
-    <p>The next-generation decentralized cryptocurrency on Polygon, designed for security, efficiency, and infinite possibilities.</p>
-    <a href="whitepaper.html" class="btn">Read Whitepaper</a>
-    
-    <!-- Tokenomics Section -->
-    <div class="section">
-      <h2>Tokenomics</h2>
-      <p>Total Supply: <strong>4.7 million ZRC</strong> with a fixed supply and no additional minting.</p>
-    </div>
-    
-    <!-- Technical Specifications Section -->
-    <div class="section">
-      <h2>Technical Specifications</h2>
-      <p>Blockchain: <strong>Polygon (MATIC)</strong></p>
-      <p>Decimals: <strong>8</strong> – Fast transactions, low fees, and high scalability.</p>
-    </div>
-    
-    <!-- Roadmap Section -->
-    <div class="section">
-      <h2>Roadmap</h2>
-      <p>2025 Q1-Q2: Launch & Community Building</p>
-      <p>2025 Q3-Q4: Exchange Listings</p>
-      <p>2026+: Real-World Utility & Ecosystem Development</p>
-    </div>
-  </div>
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>ZeroCoin ZRC ∞</title>  
+  <style>  
+    /* Smooth Scrolling */  
+    html {  
+      scroll-behavior: smooth;  
+    }  
+    /* Global Styles */  
+    body {  
+      font-family: Arial, sans-serif;  
+      text-align: center;  
+      background-color: #121212;  
+      color: white;  
+      margin: 0;  
+      padding: 50px;  
+      position: relative;  
+      overflow-x: hidden;  
+      overflow-y: auto;  
+    }  
+    /* Infinity Background Watermark */  
+    body::before {  
+      content: '∞';  
+      position: fixed;  
+      top: 50%;  
+      left: 50%;  
+      font-size: 300px;  
+      opacity: 0.05;  
+      transform: translate(-50%, -50%);  
+      z-index: 0;  
+    }  
+    /* Falling Coins Background */  
+    .falling-coins {  
+      position: fixed;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 100%;  
+      z-index: -1;  
+      pointer-events: none;  
+    }  
+    .coin {  
+      position: absolute;  
+      width: 50px;  
+      height: 50px;  
+      background:  rgba(255, 255, 255, 0.1);
+      border-radius: 50%;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      font-size: 22px;  
+      font-weight: bold;  
+      color: yellow;  
+      text-shadow: 0 0 5px #fff;  
+      opacity: 0.6;  
+      animation: fall 20s linear infinite, fadeOut 20s ease-in-out infinite;  
+    }  
+    @keyframes fall {  
+      0% { transform: translateY(-50px) scale(1); opacity: 1; }  
+      100% { transform: translateY(100vh) scale(0.6); opacity: 0; }  
+    }  
+    @keyframes fadeOut {  
+      0% { opacity: 1; }  
+      70% { opacity: 1; }  
+      100% { opacity: 0; }  
+    }  
+    /* Main Content */  
+    .content {  
+      position: relative;  
+      z-index: 10;  
+      max-width: 900px;  
+      margin: auto;  
+    }  
+    img.logo {  
+      width: 150px;  
+      border-radius: 50%;  
+      margin-bottom: 20px;  
+    }  
+    h1 {  
+      font-size: 42px;  
+    }  
+    p {  
+      font-size: 18px;  
+      max-width: 700px;  
+      margin: 10px auto;  
+    }  
+    /* Whitepaper Button with Subtle Movement */  
+    .btn {  
+      display: inline-block;  
+      padding: 15px 30px;  
+      font-size: 20px;  
+      background-color: #ffcc00;  
+      color: #121212;  
+      text-decoration: none;  
+      border-radius: 8px;  
+      margin: 20px auto;  
+      animation: glow 1.5s infinite alternate, bounce 2.5s infinite ease-in-out;  
+    }  
+    @keyframes glow {  
+      0% { box-shadow: 0 0 10px #ffcc00; }  
+      100% { box-shadow: 0 0 20px #ffcc00; }  
+    }  
+    @keyframes bounce {  
+      0%, 100% { transform: translateY(0); }  
+      50% { transform: translateY(-5px); }  
+    }  
+    /* Section Layout */  
+    .section {  
+      background: rgba(255, 255, 255, 0.1);  
+      padding: 25px;  
+      margin: 30px auto;  
+      border: 2px solid #ffcc00;  
+      border-radius: 15px;  
+      max-width: 700px;  
+      box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);  
+    }  
+    .section h2 {  
+      color: #ffcc00;  
+      font-size: 28px;  
+      margin-bottom: 10px;  
+    }  
+    /* Contact Floating Section (Professional Minimalist) */  
+    .contact {  
+      position: fixed;  
+      left: 20px;  
+      bottom: 20px;  
+      display: flex;  
+      flex-direction: column;  
+      gap: 10px;  
+    }  
+    .contact a {  
+      display: inline-block;  
+      text-decoration: none;  
+      transition: transform 0.2s ease;  
+    }  
+    .contact a:hover {  
+      transform: scale(1.05);  
+    }  
+    .contact img {  
+      width: 24px;  
+      height: 24px;  
+      display: block;  
+    }  
+  </style>  
+</head>  
+<body>  
+  <!-- Falling Coins Container -->  
+  <div class="falling-coins"></div>    <div class="content">  
+    <img src="logo1.png" alt="ZeroCoin ZRC ∞ Logo" class="logo">  
+    <h1>ZeroCoin ZRC ∞</h1>  
+    <p>The next-generation decentralized cryptocurrency on Polygon, designed for security, efficiency, and infinite possibilities.</p>  
+    <a href="whitepaper.html" class="btn">Read Whitepaper</a>  <!-- Tokenomics Section -->  
+<div class="section">  
+  <h2>Tokenomics</h2>  
+  <p>Total Supply: <strong>4.7 million ZRC</strong> with a fixed supply and no additional minting.</p>  
+</div>  
   
-  <!-- Contact Floating Section -->
-  <div class="contact">
-    <a href="https://t.me/+VXpUXhYeLVYzY2Rk" target="_blank">
-      <img src="telegram-icon.png" alt="Telegram">
-    </a>
-    <a href="https://x.com/ZeroCoinzrc?t=X8jUyjyCba9TyIEseud3Tw&s=09" target="_blank">
-      <img src="x-icon.png" alt="X">
-    </a>
-    <a href="mailto:Zerocoinzrc@gmail.com">
-      <img src="mail-icon.png" alt="Email">
-    </a>
-    <a href="https://zrczerocoin.github.io/ZeroCoin/index.html" target="_blank">
-      <img src="website-icon.png" alt="Website">
-    </a>
-  </div>
+<!-- Technical Specifications Section -->  
+<div class="section">  
+  <h2>Technical Specifications</h2>  
+  <p>Blockchain: <strong>Polygon (MATIC)</strong></p>  
+  <p>Decimals: <strong>8</strong> – Fast transactions, low fees, and high scalability.</p>  
+</div>  
   
-  <!-- Updated Falling Coins Script -->
-  <script>
-    function createCoin() {
-      var coin = document.createElement('div');
-      coin.classList.add('coin');
-      
-      // Randomly choose the coin text:
-      // 20% chance for "Z", 20% for "∞", and 60% for "0"
-      var rand = Math.random();
-      if (rand < 0.2) {
-          coin.innerHTML = 'Z';
-      } else if (rand < 0.4) {
-          coin.innerHTML = '∞';
-      } else {
-          coin.innerHTML = '0';
-      }
-      
-      // Position the coin randomly across the screen width
-      coin.style.left = Math.random() * window.innerWidth + 'px';
-      
-      // Set a random duration between 15s and 20s for a smooth fall
-      var duration = Math.random() * 5 + 15;
-      coin.style.animationDuration = duration + 's';
-      
-      // Append coin to the falling coins container
-      document.querySelector('.falling-coins').appendChild(coin);
-      
-      // Remove the coin after its animation completes to clean up the DOM
-      setTimeout(function() { coin.remove(); }, duration * 1000 + 1000);
-    }
-    
-    // Create a coin every 2500ms for a subtle background effect
-    setInterval(createCoin, 2500);
-  </script>
-</body>
+<!-- Roadmap Section -->  
+<div class="section">  
+  <h2>Roadmap</h2>  
+  <p>2025 Q1-Q2: Launch & Community Building</p>  
+  <p>2025 Q3-Q4: Exchange Listings</p>  
+  <p>2026+: Real-World Utility & Ecosystem Development</p>  
+</div>
+
+  </div>    <!-- Contact Floating Section (Professional Minimalist) -->    <div class="contact">  
+    <a href="https://t.me/+VXpUXhYeLVYzY2Rk" target="_blank">  
+      <img src="telegram-icon.png" alt="Telegram">  
+    </a>  
+    <a href="https://x.com/ZeroCoinzrc?t=X8jUyjyCba9TyIEseud3Tw&s=09" target="_blank">  
+      <img src="x-icon.png" alt="X">  
+    </a>  
+    <a href="mailto:Zerocoinzrc@gmail.com">  
+      <img src="mail-icon.png" alt="Email">  
+    </a>  
+    <a href="https://zrczerocoin.github.io/ZeroCoin/index.html" target="_blank">  
+      <img src="website-icon.png" alt="Website">  
+    </a>  
+  </div>    <!-- Falling Coins Script -->    <script>  
+    function createCoin() {  
+      const coin = document.createElement('div');  
+      coin.classList.add('coin');  
+      coin.innerHTML = '0';  
+      coin.style.left = Math.random() * window.innerWidth + 'px';  
+      // Set a random duration between 15s and 20s for a slow, smooth fall  
+      const duration = Math.random() * 7 + 13;  
+      coin.style.animationDuration = duration + 's';  
+      document.querySelector('.falling-coins').appendChild(coin);  
+      // Remove the coin slightly after its animation completes  
+      setTimeout(() => { coin.remove(); }, duration * 1000 + 1000);  
+    }  
+    // Create a coin every 2000ms (2 seconds) to keep the background subtle  
+    setInterval(createCoin, 2500);  
+  </script>  </body>  
 </html>
