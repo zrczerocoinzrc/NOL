@@ -50,11 +50,11 @@
       display: flex;  
       align-items: center;  
       justify-content: center;  
-      font-size: 24px;  
+      font-size: 22px;  
       font-weight: bold;  
-      color: white;  
+      color: yellow;  
       text-shadow: 0 0 5px #fff;  
-      opacity: 0.7;  
+      opacity: 0.6;  
       animation: fall 20s linear infinite, fadeOut 20s ease-in-out infinite;  
     }  
     @keyframes fall {  
@@ -192,13 +192,13 @@
       coin.innerHTML = '0';  
       coin.style.left = Math.random() * window.innerWidth + 'px';  
       // Set a random duration between 15s and 20s for a slow, smooth fall  
-      const duration = Math.random() * 5 + 15;  
+      const duration = Math.random() * 7 + 13;  
       coin.style.animationDuration = duration + 's';  
       document.querySelector('.falling-coins').appendChild(coin);  
       // Remove the coin slightly after its animation completes  
       setTimeout(() => { coin.remove(); }, duration * 1000 + 1000);  
     }  
     // Create a coin every 2000ms (2 seconds) to keep the background subtle  
-    setInterval(createCoin, 2000);  
+    setInterval(createCoin, 2500);  
   </script>  </body>  
 </html>
