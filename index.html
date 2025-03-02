@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>ZeroCoin ZRC ∞</title>
+  <!-- Assuming you have your main stylesheet that controls your page theme -->
+  <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-    /* Container for falling coins – fixed position so it remains in the background */
+    /* Only styles for the falling coins background */
     .falling-coins {
       position: fixed;
       top: 0;
@@ -20,18 +17,15 @@
       overflow: hidden;
       z-index: -1;
     }
-    /* Styling for each coin */
+    /* Minimal styling for coins so they don't affect your global theme */
     .coin {
       position: absolute;
-      /* Slightly smaller font size for coins */
-      font-size: 14px;
-      color: gold;
-      opacity: 0;
-      will-change: transform, opacity; /* Helps with performance by enabling hardware acceleration [MDN: will-change](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change) */
+      /* Use a relative size to keep it slightly smaller without altering your theme’s fonts */
+      font-size: 0.9em;
+      color: inherit;  /* Inherit color or adjust if needed */
       animation-name: fall;
       animation-timing-function: linear;
     }
-    /* Keyframes for the falling animation */
     @keyframes fall {
       0% {
         transform: translateY(-10%);
@@ -45,48 +39,10 @@
         opacity: 1;
       }
     }
-    /* Content styling */
-    .content {
-      position: relative;
-      z-index: 1;
-      padding: 20px;
-      text-align: center;
-    }
-    .logo {
-      width: 100px;
-      height: auto;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #333;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 10px;
-    }
-    .section {
-      margin: 20px 0;
-    }
-    /* Floating contact icons */
-    .contact {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 2;
-    }
-    .contact a img {
-      width: 30px;
-      height: auto;
-      margin: 0 5px;
-    }
   </style>
 </head>
 <body>
-  <!-- Background falling coins container -->
   <div class="falling-coins"></div>
-  
-  <!-- Main content -->
   <div class="content">
     <img src="logo1.png" alt="ZeroCoin ZRC ∞ Logo" class="logo">
     <h1>ZeroCoin ZRC ∞</h1>
@@ -109,9 +65,9 @@
     <!-- Roadmap Section -->
     <div class="section">
       <h2>Roadmap</h2>
-      <p>2025 Q1-Q2: Launch &amp; Community Building</p>
+      <p>2025 Q1-Q2: Launch & Community Building</p>
       <p>2025 Q3-Q4: Exchange Listings</p>
-      <p>2026+: Real-World Utility &amp; Ecosystem Development</p>
+      <p>2026+: Real-World Utility & Ecosystem Development</p>
     </div>
   </div>
   
@@ -131,39 +87,38 @@
     </a>
   </div>
   
-  <!-- Falling Coins Script -->
+  <!-- Updated Falling Coins Script -->
   <script>
     function createCoin() {
-      const coin = document.createElement('div');
+      var coin = document.createElement('div');
       coin.classList.add('coin');
       
-      // Randomly choose coin content:
-      // - 20% chance for "Z"
-      // - 20% chance for "∞"
-      // - 60% chance for "0"
-      const rand = Math.random();
+      // Randomly choose the coin text:
+      // 20% chance for "Z", 20% for "∞", and 60% for "0"
+      var rand = Math.random();
       if (rand < 0.2) {
-        coin.innerHTML = 'Z';
+          coin.innerHTML = 'Z';
       } else if (rand < 0.4) {
-        coin.innerHTML = '∞';
+          coin.innerHTML = '∞';
       } else {
-        coin.innerHTML = '0';
+          coin.innerHTML = '0';
       }
       
-      // Set the coin’s horizontal starting position randomly across the viewport
+      // Position the coin randomly across the screen width
       coin.style.left = Math.random() * window.innerWidth + 'px';
       
-      // Set a random duration between 15s and 20s for a slow, smooth fall
-      const duration = Math.random() * 5 + 15; // Duration between 15s and 20s
+      // Set a random duration between 15s and 20s for a smooth fall
+      var duration = Math.random() * 5 + 15;
       coin.style.animationDuration = duration + 's';
       
       // Append coin to the falling coins container
       document.querySelector('.falling-coins').appendChild(coin);
       
-      // Remove the coin after its animation completes (plus a 1s buffer)
-      setTimeout(() => { coin.remove(); }, duration * 1000 + 1000);
+      // Remove the coin after its animation completes to clean up the DOM
+      setTimeout(function() { coin.remove(); }, duration * 1000 + 1000);
     }
-    // Create a coin every 2500ms (2.5 seconds) for a subtle background effect
+    
+    // Create a coin every 2500ms for a subtle background effect
     setInterval(createCoin, 2500);
   </script>
 </body>
