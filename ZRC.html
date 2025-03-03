@@ -209,8 +209,18 @@
     function createCoin() {
       const coin = document.createElement('div');
       coin.classList.add('coin');
-      coin.innerHTML = '0';
       coin.innerHTML = '∞';
+      coin.style.left = Math.random() * window.innerWidth + 'px';
+      document.querySelector('.falling-coins').appendChild(coin);
+      setTimeout(() => { coin.remove(); }, 15000);
+    }
+    setInterval(createCoin, 2500);
+  </script>
+  <script>
+    function createCoin() {
+      const coin = document.createElement('div');
+      coin.classList.add('coin');
+      coin.innerHTML = '0';
       coin.style.left = Math.random() * window.innerWidth + 'px';
       document.querySelector('.falling-coins').appendChild(coin);
       setTimeout(() => { coin.remove(); }, 15000);
