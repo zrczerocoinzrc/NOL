@@ -115,7 +115,7 @@
       transition: transform 0.3s ease;
 
       /* Bouncing effect added */
-      animation: bounce 2s infinite;
+      animation: bounce 3s infinite;
     }
     .btn:hover {
       transform: scale(1.05);
@@ -185,7 +185,7 @@
     <img src="logo1.png" alt="ZeroCoin ZRC ∞ Logo" class="logo">
     <h1>ZeroCoin ZRC ∞</h1>
     <p>The next-generation decentralized cryptocurrency on Polygon, designed for security, efficiency, and infinite possibilities.</p>
-    <a href="whitepaper.html" class="btn">Read Whitepaper</a>
+    <a href="whitepaper.html" class="btn">Whitepaper</a>
 
     <!-- Tokenomics Section -->
     <div class="section">
