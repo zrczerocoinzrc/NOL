@@ -237,14 +237,11 @@
 <div id="swap" class="swap-section">
   <h2>Swap ZRC</h2>
   <div class="swap-buttons">
-    <button class="swap-btn active" onclick="showSwap('kyber')">KyberSwap</button>
-    <button class="swap-btn" onclick="showSwap('matcha')">Matcha</button>
+  
     <button class="swap-btn" onclick="showSwap('uniswap')">Uniswap</button>
   </div>
 
   <!-- Swap Iframes -->
-  <iframe id="kyber" class="swap-iframe active" src="https://kyberswap.com/partner-swap?chainId=137&inputCurrency=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270&outputCurrency=0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79&clientId=dexscreener&feeReceiver=0x0DA2a82ED2c387d1751ccbAf999A80b65bdb269E&enableTip=true&chargeFeeBy=currency_out&feeAmount=30&preferredFeeTokens=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"></iframe>
-  <iframe id="matcha" class="swap-iframe" src="https://matcha.xyz/trade?sellChain=137&sellAddress=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270&buyAddress=0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79&buyChain=137&ref=dexscreener&swapFeeBps=40"></iframe>
   <iframe id="uniswap" class="swap-iframe" src="https://app.uniswap.org/swap?outputCurrency=0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79&chain=polygon"></iframe>
 </div>
 
@@ -260,7 +257,7 @@
 
 <style>
   .swap-section {
-    background: rgba(255, 255, 255, 0.1);
+    background: #ffcc00; 
     padding: 30px;
     margin-top: 50px;
     border: 2px solid #6A0DAD;
@@ -279,8 +276,8 @@
     padding: 12px 25px;
     font-size: 18px;
     border: 2px solid #6A0DAD;
-    background: none;
-    color: #fff;
+    background:  #ffcc00;
+    color: #121212;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
