@@ -245,14 +245,7 @@
   <iframe id="uniswap" class="swap-iframe" src="https://app.uniswap.org/swap?outputCurrency=0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79&chain=polygon"></iframe>
 </div>
 
-<script>
-  function showSwap(platform) {
-    document.querySelectorAll('.swap-iframe').forEach(frame => frame.classList.remove('active'));
-    document.querySelectorAll('.swap-btn').forEach(btn => btn.classList.remove('active'));
-
-    document.getElementById(platform).classList.add('active');
-    document.querySelector(`[onclick="showSwap('${platform}')"]`).classList.add('active');
-  }
+}
 </script>
 
 <style>
