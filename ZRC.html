@@ -181,6 +181,108 @@
   </head>
 <body>
   <!-- Falling Coins Container -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZeroCoin ZRC ∞</title>
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #0f111a;
+      color: #ccc;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .falling-coins {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      /* Additional animation styles can be added here */
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #171b26;
+      color: #ccc;
+      padding: 10px 20px;
+      margin: 10px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #1f2533;
+    }
+    .section {
+      background-color: #171b26;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .section img {
+      max-width: 100%;
+      margin-top: 10px;
+    }
+    /* Swap Section Styles */
+    .swap-container {
+      background-color: #171b26;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 8px;
+      max-width: 800px;
+      text-align: center;
+    }
+    .swap-container h2 {
+      margin-bottom: 20px;
+    }
+    .swap-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .swap-links a {
+      background-color: #171b26;
+      border-radius: 12px;
+      padding: 20px;
+      width: 120px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #ccc;
+      font-size: 14px;
+      transition: transform 0.2s;
+    }
+    .swap-links a:hover {
+      transform: scale(1.05);
+    }
+    .swap-links a img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Falling Coins Container -->
   <div class="falling-coins"></div>
   <div class="content">
     <img src="logo.png" alt="ZeroCoin ZRC ∞ Logo" class="logo">
@@ -188,12 +290,14 @@
     <p>Decentralized cryptocurrency on Polygon, designed for security, efficiency, and infinite possibilities.</p>
     <a href="whitepaper.html" class="btn">Whitepaper</a>
     <a href="#swap" class="btn">SWAP</a>
+    
     <!-- Tokenomics Section -->
     <div class="section">
       <h2>Tokenomics</h2>
-      <p>Total Supply: <strong>4.7 million ZRC</strong> with a fixed supply and no additional minting , Strict release plan ensures transparency, stability, and decentralization.</p>
+      <p>Total Supply: <strong>4.7 million ZRC</strong> with a fixed supply and no additional minting. Strict release plan ensures transparency, stability, and decentralization.</p>
       <img src="moon1.png" alt="Tokenomics">
     </div>
+    
     <!-- Technical Specifications Section -->
     <div class="section">
       <h2>Technical Specifications</h2>
@@ -201,6 +305,7 @@
       <p>Decimals: <strong>8</strong> – Fast transactions, low fees, and high scalability.</p>
       <img src="moon2.png" alt="Technical Specifications">
     </div>
+    
     <!-- Roadmap Section -->
     <div class="section">
       <h2>Roadmap</h2>
@@ -209,66 +314,29 @@
       <p>2026+: After the initial 12-15 months, 4% of the total supply will be released annually. Real-World Utility & Ecosystem Development</p>
       <img src="moon3.png" alt="Roadmap">
     </div>
-    <div class="Swap">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swap Links</title>
-    <style>
-        body {
-            background-color: #0f111a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            display: flex;
-            gap: 12px;
-        }
-        .box {
-            background-color: #171b26;
-            border-radius: 12px;
-            padding: 20px;
-            width: 120px;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-family: Arial, sans-serif;
-            color: #ccc;
-            font-size: 14px;
-        }
-        .box img {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 10px;
-            border-radius: 50%;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <a href="https://app.uniswap.org/swap?outputCurrency=0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79&chain=polygon" class="box" target="_top" rel="noopener noreferrer">
-        <img src="https://cryptologos.cc/logos/uniswap-uni-logo.png?v=023" alt="Uniswap">
-        Uniswap V...
-    </a>
     
-    <a href="https://kyberswap.com/swap/polygon/-to-0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79?r=geckoterminal" class="box" target="_top" rel="noopener noreferrer">
-        <img src="https://cryptologos.cc/logos/kyber-network-knc-logo.png?v=023" alt="KyberSwap">
-        KyberSwap
-    </a>
-    
-    <a href="https://matcha.xyz/trade?sellChain=137&sellAddress=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270&buyAddress=0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79&buyChain=137&ref=dexscreener&swapFeeBps=40" class="box" target="_top" rel="noopener noreferrer">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Matcha_Logo.svg/512px-Matcha_Logo.svg.png" alt="Matcha">
-        Matcha
-    </a>
-</div>
-
+    <!-- Swap Section -->
+    <div id="swap" class="swap-container">
+      <h2>Swap Links</h2>
+      <div class="swap-links">
+        <a href="https://app.uniswap.org/swap?outputCurrency=0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79&chain=polygon" target="_top" rel="noopener noreferrer">
+          <img src="https://cryptologos.cc/logos/uniswap-uni-logo.png?v=023" alt="Uniswap">
+          Uniswap V...
+        </a>
+        <a href="https://kyberswap.com/swap/polygon/-to-0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79?r=geckoterminal" target="_top" rel="noopener noreferrer">
+          <img src="https://cryptologos.cc/logos/kyber-network-knc-logo.png?v=023" alt="KyberSwap">
+          KyberSwap
+        </a>
+        <a href="https://matcha.xyz/trade?sellChain=137&sellAddress=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270&buyAddress=0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79&buyChain=137&ref=dexscreener&swapFeeBps=40" target="_top" rel="noopener noreferrer">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Matcha_Logo.svg/512px-Matcha_Logo.svg.png" alt="Matcha">
+          Matcha
+        </a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
+        
   </div>
   <!-- Contact Floating Section -->
   <div class="contact">
