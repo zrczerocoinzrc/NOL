@@ -1,67 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- (Head content stays unchanged for favicon, fonts, tracking, styles) -->
-  <!-- ... KEEP YOUR ORIGINAL HEAD SECTION HERE ... -->
-</head>
-<body>
-  <div class="falling-coins"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZRC ZeroCoin ∞</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WHYB7FRHZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3WHYB7FRHZ');
+    </script>
+    <!-- Favicon and App Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon000.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon000-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon000-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome000-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome000-512x512.png" />
+    <link rel="shortcut icon" href="favicon000.ico" />
 
-  <!-- Hero Section -->
-  <div class="content">
-    <img src="logo.png" alt="ZeroCoin ZRC ∞ Logo" class="logo">
-    <h1>ZeroCoin ZRC ∞</h1>
-    <p>Decentralized cryptocurrency on Polygon — built with zero budget, infinite vision.</p>
-    <a href="whitepaper.html" class="btn">Whitepaper</a>
-    <a href="#swap" class="btn">Swap</a>
-  </div>
-
-  <!-- Tokenomics Section -->
-  <div class="section">
-    <h2>Tokenomics</h2>
-    <p><strong>Total Supply:</strong> 4.7 million ZRC (fixed)<br>No minting, no inflation — just a fair and limited supply.</p>
-    <p>Transparent token release ensures decentralized control and long-term stability.</p>
-    <img src="moon1.png" alt="Tokenomics">
-  </div>
-
-  <!-- Bridging Section -->
-  <div class="section">
-    <h2>ZRC Cross-Chain Bridge</h2>
-    <p>ZeroCoin (ZRC) is now bridgeable between <strong>Polygon</strong> and <strong>BNB Smart Chain</strong>.</p>
-    <p>This allows for faster transactions, lower fees, and more accessibility across multiple networks. ZRC holders can enjoy flexible movement of assets without central restrictions.</p>
-    <img src="bridge.png" alt="ZRC Bridge">
-  </div>
-
-  <!-- Swap Section -->
-  <div class="section swap-container" id="swap">
-    <h2>Swap ZRC</h2>
-    <div class="swap-links">
-      <a href="https://app.uniswap.org/swap" target="_blank">
-        <img src="uniswap.png" alt="Uniswap">
-        Uniswap
+    <style>
+      /* Smooth Scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Global Styles */
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #121212;
+        color: white;
+        margin: 0;
+        padding: 50px;
+        position: relative;
+        overflow-x: hidden;
+      }
+      
+      /* Infinity Background Watermark */
+      body::before {
+        content: '∞';
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        font-size: 300px;
+        opacity: 0.05;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+      }
+      
+      /* Falling Coins Background */
+      .falling-coins {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+      }
+      .coin {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: #121212;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: rgba;
+        text-shadow: 0 0 5px #fff;
+        opacity: 0.5;
+        animation: fall 15s linear infinite, fadeOut 15s ease-in-out infinite;
+      }
+      @keyframes fall {
+        0% { transform: translateY(-50px) scale(1); opacity: 1; }
+        100% { transform: translateY(100vh) scale(0.6); opacity: 0; }
+      }
+      @keyframes fadeOut {
+        0% { opacity: 1; }
+        70% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+      
+      /* Main Content */
+      .content {
+        position: relative;
+        z-index: 10;
+        max-width: 900px;
+        margin: auto;
+      }
+      img.logo {
+        width: 150px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 42px;
+      }
+      p {
+        font-size: 18px;
+        max-width: 700px;
+        margin: 10px auto;
+        line-height: 1.6;
+      }
+      
+      /* Buttons */
+      .btn {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 20px;
+        background-color: #ffcc00;
+        color: #121212;
+        text-decoration: none;
+        border-radius: 8px;
+        margin: 20px auto;
+        transition: transform 0.3s ease;
+        animation: bounce 3s infinite;
+      }
+      .btn:hover {
+        transform: scale(1.05);
+      }
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-15px); }
+        60% { transform: translateY(-8px); }
+      }
+      
+      /* Section Layout */
+      .section {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        margin: 50px auto;
+        border: 2px solid #ffcc00;
+        border-radius: 15px;
+        max-width: 700px;
+        box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+        transition: transform 0.3s ease;
+      }
+      .section:hover {
+        transform: scale(1.02);
+      }
+      .section h2 {
+        color: #ffcc00;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      .section img {
+        width: 100%;
+        border-radius: 15px;
+        margin-top: 20px;
+        box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
+      }
+      
+      /* Contact Floating Section */
+      .contact {
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .contact a {
+        display: inline-block;
+        text-decoration: none;
+        transition: transform 0.2s ease;
+      }
+      .contact a:hover {
+        transform: scale(1.1);
+      }
+      .contact img {
+        width: 30px;
+        height: 30px;
+        display: block;
+      }
+      
+      /* Swap Section Styles */
+      .swap-container {
+        background-color: #171b26;
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 8px;
+        max-width: 800px;
+        text-align: center;
+      }
+      .swap-container h2 {
+        margin-bottom: 20px;
+      }
+      .swap-links {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .swap-links a {
+        background-color: #171b26;
+        border-radius: 12px;
+        padding: 20px;
+        width: 120px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #ccc;
+        font-size: 14px;
+        transition: transform 0.2s;
+      }
+      .swap-links a:hover {
+        transform: scale(1.05);
+      }
+      .swap-links a img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Falling Coins Container -->
+    <div class="falling-coins"></div>
+    
+    <div class="content">
+      <img src="logo.png" alt="ZeroCoin ZRC ∞ Logo" class="logo" />
+      <h1>ZeroCoin ZRC ∞</h1>
+      <p>Decentralized cryptocurrency on Polygon, designed for security, efficiency, and infinite possibilities.</p>
+      <a href="whitepaper.html" class="btn">Whitepaper</a>
+      <a href="#swap" class="btn">SWAP</a>
+      
+      <!-- Tokenomics Section -->
+      <div class="section">
+        <h2>Tokenomics</h2>
+        <p>Total Supply: <strong>4.7 million ZRC</strong> with a fixed supply and no additional minting. Transparent release and stability for long-term decentralization.</p>
+        <img src="moon1.png" alt="Tokenomics" />
+      </div>
+      
+      <!-- Technical Specifications Section -->
+      <div class="section">
+        <h2>Technical Specifications</h2>
+        <p>Blockchain: <strong>Polygon (MATIC)</strong></p>
+        <p>Decimals: <strong>8</strong> – Fast transactions, low fees, and high scalability.</p>
+        <img src="moon2.png" alt="Technical Specifications" />
+      </div>
+      
+      <!-- New Bridging Section -->
+      <div class="section">
+        <h2>Cross-Chain Flexibility</h2>
+        <p>
+          ZeroCoin (ZRC) is now bridgeable to the BNB Smart Chain. Enjoy lower fees, faster transactions, and expanded access across networks—all while keeping your assets secure.
+        </p>
+        <!-- Ensure you add a relevant bridging image file in your project, e.g. bridge.png -->
+        <img src="bridge.png" alt="Cross-Chain Bridge" />
+      </div>
+      
+      <!-- Roadmap Section -->
+      <div class="section">
+        <h2>Roadmap</h2>
+        <p>2025 Q1-Q2: Launch & Community Building</p>
+        <p>2025 Q3-Q4: Releasing 60% of ZeroCoin’s total supply over 12-15 months</p>
+        <p>2026+: Annual release of 4% of the total supply with ongoing ecosystem development</p>
+        <img src="moon3.png" alt="Roadmap" />
+      </div>
+      
+      <!-- SWAP Section -->
+      <div id="swap" class="swap-container">
+        <h2>Swap Links</h2>
+        <div class="swap-links">
+          <a href="https://app.uniswap.org/swap?outputCurrency=0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79&chain=polygon" target="_top" rel="noopener noreferrer">
+            <img src="https://cryptologos.cc/logos/uniswap-uni-logo.png?v=023" alt="Uniswap" />
+            Uniswap
+          </a>
+          <a href="https://kyberswap.com/swap/polygon/-to-0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79?r=geckoterminal" target="_top" rel="noopener noreferrer">
+            <img src="https://cryptologos.cc/logos/kyber-network-knc-logo.png?v=023" alt="KyberSwap" />
+            KyberSwap
+          </a>
+          <a href="https://matcha.xyz/trade?sellChain=137&sellAddress=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270&buyAddress=0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79&buyChain=137&ref=dexscreener&swapFeeBps=40" target="_top" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Matcha_Logo.svg/512px-Matcha_Logo.svg.png" alt="Matcha" />
+            Matcha
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contact Floating Section -->
+    <div class="contact">
+      <a href="https://t.me/ZRCzerocoin" target="_blank">
+        <img src="ticon.png" alt="Telegram" />
       </a>
-      <a href="https://kyberswap.com/swap" target="_blank">
-        <img src="kyber.png" alt="KyberSwap">
-        KyberSwap
+      <a href="https://x.com/ZeroCoinzrc" target="_blank">
+        <img src="xicon.png" alt="X" />
       </a>
-      <a href="https://matcha.xyz" target="_blank">
-        <img src="matcha.png" alt="Matcha">
-        Matcha
+      <a href="mailto:Zerocoinzrc@gmail.com">
+        <img src="micon.png" alt="Email" />
+      </a>
+      <a href="https://zrczerocoin.github.io/ZeroCoin/ZRC.html" target="_blank">
+        <img src="wicon.png" alt="Website" />
       </a>
     </div>
-  </div>
-
-  <!-- Contact Buttons -->
-  <div class="contact">
-    <a href="https://x.com/ZeroCoinzrc" target="_blank">
-      <img src="xicon.png" alt="X">
-    </a>
-    <a href="mailto:Zerocoinzrc@gmail.com">
-      <img src="emailicon.png" alt="Email">
-    </a>
-    <a href="https://t.me/ZRCzerocoin" target="_blank">
-      <img src="telegramicon.png" alt="Telegram">
-    </a>
-  </div>
-</body>
+    
+    <!-- Falling Coins Script -->
+    <script>
+      function createCoin() {
+        const coin = document.createElement('div');
+        coin.classList.add('coin');
+        coin.innerHTML = '∞';
+        coin.style.left = Math.random() * window.innerWidth + 'px';
+        document.querySelector('.falling-coins').appendChild(coin);
+        setTimeout(() => { coin.remove(); }, 15000);
+      }
+      setInterval(createCoin, 2500);
+    </script>
+    <script>
+      function createCoin() {
+        const coin = document.createElement('div');
+        coin.classList.add('coin');
+        coin.innerHTML = '0';
+        coin.style.left = Math.random() * window.innerWidth + 'px';
+        document.querySelector('.falling-coins').appendChild(coin);
+        setTimeout(() => { coin.remove(); }, 15000);
+      }
+      setInterval(createCoin, 2500);
+    </script>
+  </body>
 </html>
