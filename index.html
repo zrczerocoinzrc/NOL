@@ -202,7 +202,7 @@
         border-radius: 12px;
         padding: 20px;
         width: 120px;
-        height: 100px;
+        height: 60px; /* Adjusted height for text-only links */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -215,12 +215,7 @@
       .swap-links a:hover {
         transform: scale(1.05);
       }
-      .swap-links a img {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 10px;
-        border-radius: 50%;
-      }
+      /* Removed image styling for swap links since icons are no longer used */
     </style>
   </head>
   <body>
@@ -280,15 +275,12 @@ Smart Contract Address: 0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79 Fast transact
         <h2>Swap Links</h2>
         <div class="swap-links">
           <a href="https://app.uniswap.org/swap?outputCurrency=0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79&chain=polygon" target="_top" rel="noopener noreferrer">
-            <img src="https://cryptologos.cc/logos/uniswap-uni-logo.png?v=023" alt="Uniswap" />
             Uniswap
           </a>
           <a href="https://kyberswap.com/swap/polygon/-to-0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79?r=geckoterminal" target="_top" rel="noopener noreferrer">
-            <img src="https://cryptologos.cc/logos/kyber-network-knc-logo.png?v=023" alt="KyberSwap" />
             KyberSwap
           </a>
           <a href="https://matcha.xyz/trade?sellChain=137&sellAddress=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270&buyAddress=0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79&buyChain=137&ref=dexscreener&swapFeeBps=40" target="_top" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Matcha_Logo.svg/512px-Matcha_Logo.svg.png" alt="Matcha" />
             Matcha
           </a>
         </div>
