@@ -20,7 +20,10 @@
     <link rel="icon" type="image/png" sizes="192x192" href="android-chrome000-192x192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="android-chrome000-512x512.png" />
     <link rel="shortcut icon" href="favicon000.ico" />
-
+    
+    <!-- AOS CSS for Scrolling Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
     <style>
       /* Smooth Scrolling */
       html {
@@ -156,6 +159,14 @@
         box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
       }
       
+      /* Tokenomics Pie Chart Canvas */
+      #tokenomicsChartContainer {
+        position: relative;
+        height: 400px;
+        width: 100%;
+        margin: 20px auto;
+      }
+      
       /* Contact Floating Section */
       .contact {
         position: fixed;
@@ -202,7 +213,7 @@
         border-radius: 12px;
         padding: 20px;
         width: 120px;
-        height: 60px; /* Adjusted height for text-only links */
+        height: 60px;
         font-weight: bold;    
         display: flex;
         flex-direction: column;
@@ -216,7 +227,6 @@
       .swap-links a:hover {
         transform: scale(1.05);
       }
-      /* Removed image styling for swap links since icons are no longer used */
     </style>
   </head>
   <body>
@@ -225,54 +235,73 @@
     
     <div class="content">
       <img src="logo.png" alt="ZeroCoin ZRC ∞ Logo" class="logo" />
-      <h1>ZeroCoin ZRC ∞</h1>
-      <p>ZRC ZeroCoin ∞ is a decentralized cryptocurrency built on Polygon blockchain
-designed to prove that a successful crypto project can emerge without a hefty budget.
-Developed with a zero-budget approach—without costly marketing, pre-mining
-advantages, or investor fundraising—this project is entirely community-driven and
-focused on fairness, sustainability, and long-term real-world applicability. In addition
-to its core functionalities, ZRC ZeroCoin now features bridging capabilities with BNB,
-empowering users to transfer tokens seamlessly across networks.</p>
+      <h1>ZRC ZeroCoin ∞</h1>
+      <p>
+        ZRC ZeroCoin ∞ is a decentralized cryptocurrency built on Polygon blockchain
+        designed to prove that a successful crypto project can emerge without a hefty budget.
+        Developed with a zero-budget approach—without costly marketing, pre-mining
+        advantages, or investor fundraising—this project is entirely community-driven and
+        focused on fairness, sustainability, and long-term real-world applicability. In addition
+        to its core functionalities, ZRC ZeroCoin now features bridging capabilities with BNB,
+        empowering users to transfer tokens seamlessly across networks.
+      </p>
       <a href="whitepaper.html" class="btn">Whitepaper</a>
       <a href="#swap" class="btn">SWAP</a>
       
-      <!-- Tokenomics Section -->
-      <div class="section">
+      <!-- Tokenomics Section with Pie Chart -->
+      <div class="section" id="tokenomicsSection" data-aos="fade-up">
         <h2>Tokenomics</h2>
-        <p>Total Supply: <strong>4.7 million ZRC</strong> with a fixed supply and no additional minting. Transparent release and stability for long-term decentralization.</p>
+        <p>
+          Total Supply: <strong>4.7 million ZRC</strong> with a fixed supply and no additional minting. Transparent release and stability for long-term decentralization.
+        </p>
+        <!-- Canvas container for the Chart.js pie chart -->
+        <div id="tokenomicsChartContainer">
+          <canvas id="tokenomicsChart"></canvas>
+        </div>
         <img src="moon1.png" alt="Tokenomics" />
       </div>
       
       <!-- Technical Specifications Section -->
-      <div class="section">
+      <div class="section" data-aos="fade-up">
         <h2>Technical Specifications</h2>
-        <p>Blockchain: <strong>Available on both Polygon (MATIC) and BNB Smart Chain</strong></p>
-        <p>Decimals: <strong>8</strong> – Creation Date: February 26, 2025
-Smart Contract Address: 0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79 Fast transactions, low fees, and high scalability.</p>
+        <p>
+          Blockchain: <strong>Available on both Polygon (MATIC) and BNB Smart Chain</strong>
+        </p>
+        <p>
+          Decimals: <strong>8</strong> – Creation Date: February 26, 2025. 
+          Smart Contract Address: 0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79. 
+          Fast transactions, low fees, and high scalability.
+        </p>
         <img src="moon2.png" alt="Technical Specifications" />
       </div>
       
-      <!-- New Bridging Section -->
-      <div class="section">
+      <!-- Cross-Chain Bridging Section -->
+      <div class="section" data-aos="fade-up">
         <h2>Cross-Chain Flexibility</h2>
         <p>
-          ZeroCoin (ZRC) is now bridgeable to the BNB Smart Chain. Enjoy lower fees, faster transactions, and expanded access across networks—all while keeping your assets secure.
+          ZeroCoin (ZRC) is now bridgeable to the BNB Smart Chain. Enjoy lower fees, faster transactions,
+          and expanded access across networks—all while keeping your assets secure.
         </p>
-        <!-- Ensure you add a relevant bridging image file in your project, e.g. bridge.png -->
         <img src="bridge.png" alt="Cross-Chain Bridge" />
       </div>
       
-      <!-- Roadmap Section -->
-      <div class="section">
+      <!-- Roadmap Section with Staggered Animations -->
+      <div class="section" data-aos="fade-up">
         <h2>Roadmap</h2>
-        <p>2025 Q1-Q2: Launch & Community Building</p>
-        <p>2025 Q3-Q4: Releasing 60% of ZeroCoin’s total supply over 12-15 months</p>
-        <p>2026+: Annual release of 4% of the total supply with ongoing ecosystem development</p>
-        <img src="moon3.png" alt="Roadmap" />
+        <p data-aos="fade-up" data-aos-delay="100">
+          2025 Q1-Q2: Launch & Community Building
+        </p>
+        <p data-aos="fade-up" data-aos-delay="200">
+          2025 Q3-Q4: Releasing 60% of ZeroCoin’s total supply over 12-15 months
+        </p>
+        <p data-aos="fade-up" data-aos-delay="300">
+          2026+: Annual release of 4% of the total supply with ongoing ecosystem development
+        </p>
+        <img src="moon3.png" alt="Roadmap" data-aos="fade-up" data-aos-delay="400" />
       </div>
       
       <!-- SWAP Section -->
-      <div id="swap" class="swap-container">
+      <div id="swap" class="swap-container" data-aos="fade-up">
         <h2>Swap Links</h2>
         <div class="swap-links">
           <a href="https://app.uniswap.org/swap?outputCurrency=0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79&chain=polygon" target="_top" rel="noopener noreferrer">
@@ -282,7 +311,8 @@ Smart Contract Address: 0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79 Fast transact
             Kyper Swap 
           </a>
           <a href="https://matcha.xyz/trade?sellChain=137&sellAddress=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270&buyAddress=0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79&buyChain=137&ref=dexscreener&swapFeeBps=40" target="_top" rel="noopener noreferrer">
-            Matcha          </a>
+            Matcha
+          </a>
         </div>
       </div>
     </div>
@@ -303,7 +333,57 @@ Smart Contract Address: 0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79 Fast transact
       </a>
     </div>
     
-    <!-- Falling Coins Script -->
+    <!-- AOS JS for Scrolling Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        AOS.init({
+          duration: 800,
+          once: true,
+        });
+      });
+    </script>
+    
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('tokenomicsChart').getContext('2d');
+        var tokenomicsChart = new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: ['Team', 'Investors', 'Community', 'Development'],
+            datasets: [{
+              data: [20, 30, 35, 15],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.7)',
+                'rgba(54, 162, 235, 0.7)',
+                'rgba(255, 206, 86, 0.7)',
+                'rgba(75, 192, 192, 0.7)'
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        });
+      });
+    </script>
+    
+    <!-- Falling Coins Scripts -->
     <script>
       function createCoin() {
         const coin = document.createElement('div');
