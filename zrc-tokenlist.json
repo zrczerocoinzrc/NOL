@@ -16,6 +16,10 @@
       "symbol": "ZRC",
       "decimals": 8,
       "logoURI": "https://zrczerocoin.github.io/ZeroCoin/zrc-list.png"
+      "website": "https://zrczerocoin.github.io/ZeroCoin/ZRC.html",
+      "twitter": "https://x.com/ZeroCoinzrc",
+      "telegram": "https://t.me/ZRCzerocoin",
+      "explorer": "https://polygonscan.com/token/0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79"
     }
   ]
 }
