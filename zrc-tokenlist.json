@@ -1,8 +1,8 @@
 {
   "name": "ZeroCoin Token List",
-  "logoURI": "https://zrczerocoin.github.io/ZeroCoin/zrc-list.png",
+  "logoURI": "https://zerocoin.netlify.app/zrc-list.png",
   "keywords": ["zrc", "zerocoin", "polygon", "token"],
-  "timestamp": "2025-04-19T14:25:32+00:00",
+    "timestamp": "2025-04-21T00:00:00+00:00",
   "version": {
     "major": 1,
     "minor": 0,
