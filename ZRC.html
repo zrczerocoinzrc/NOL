@@ -250,7 +250,7 @@
   <!-- Technical Specifications Section -->
   <div class="section" data-aos="fade-up">
     <h2>Technical Specifications</h2>
-    <p>Blockchain: <strong>Available on both Polygon (MATIC) and BNB Smart Chain</strong></p>
+    <p>Blockchain: <strong>Available on both Polygon (MATIC) and BNB Smart Chain at 2026</strong></p>
     <p>Decimals: <strong>8</strong> – Creation Date: February 26, 2025. Smart Contract Address: 0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79. Fast transactions, low fees, and high scalability.</p>
     <img src="moon2.png" alt="Technical Specifications" />
   </div>
@@ -278,37 +278,127 @@
   </div>
   
   <!-- Cross-Chain Bridging Section -->
+    <!-- Roadmap Section with Staggered Animations -->
   <div class="section" data-aos="fade-up">
-    <h2>Cross-Chain Flexibility</h2>
-    <p>ZeroCoin (ZRC) now will be bridgeable to the BNB Smart Chain. Enjoy lower fees, faster transactions, and expanded access across networks—all while keeping your assets secure.</p>
-    <img src="bridge.png" alt="Cross-Chain Bridge" />
-  </div>
-  
-  <!-- Roadmap Section with Staggered Animations -->
-  <div class="section" data-aos="fade-up">
-    <h2>Roadmap</h2> ... [rest unchanged for brevity]
+    <h2>Roadmap</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      2025 Q1-Q2: Launch & Community Building
+    </p>
+    <p data-aos="fade-up" data-aos-delay="200">
+      2025 Q3-Q4: Releasing 60% of ZeroCoin’s total supply over 12-15 months
+    </p>
+    <p data-aos="fade-up" data-aos-delay="300">
+      2026+: Annual release of 4% of the total supply with ongoing ecosystem development
+    </p>
+    <img src="moon3.png" alt="Roadmap" data-aos="fade-up" data-aos-delay="400" />
   </div>
   
   <!-- SWAP Section -->
   <div id="swap" class="swap-container" data-aos="fade-up">
-    <h2>Swap Links</h2> ...
+    <h2>Swap Links</h2>
+    <div class="swap-links">
+      <a href="https://app.uniswap.org/swap?outputCurrency=0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79&chain=polygon" target="_top" rel="noopener noreferrer">
+        Uniswap
+      </a>
+      <a href="https://kyberswap.com/swap/polygon/-to-0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79?r=geckoterminal" target="_top" rel="noopener noreferrer">
+        Kyper Swap 
+      </a>
+      <a href="https://matcha.xyz/trade?sellChain=137&sellAddress=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270&buyAddress=0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79&buyChain=137&ref=dexscreener&swapFeeBps=40" target="_top" rel="noopener noreferrer">
+        Matcha
+      </a>
+    </div>
   </div>
 </div>
 
 <!-- Contact Floating Section -->
 <div class="contact">
-  ...
+  <a href="https://t.me/ZRCzerocoin" target="_blank">
+    <img src="ticon.png" alt="Telegram" />
+  </a>
+  <a href="https://x.com/ZeroCoinzrc" target="_blank">
+    <img src="xicon.png" alt="X" />
+  </a>
+  <a href="mailto:zrc@zerocoin.linkpc.net">
+    <img src="micon.png" alt="Email" />
+  </a>
+  <a href="https://zrczerocoin.github.io/ZeroCoin/ZRC.html" target="_blank">
+    <img src="wicon.png" alt="Website" />
+  </a>
 </div>
 
 <!-- AOS JS for Scrolling Animations -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script> ...</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  });
+</script>
+
 <!-- Chart.js Library -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script> ...</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var ctx = document.getElementById('tokenomicsChart').getContext('2d');
+    var tokenomicsChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Team', 'Investors', 'Community', 'Development'],
+        datasets: [{
+          data: [40, 54.9, 0.1, 5],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+  });
+</script>
+
 <!-- Falling Coins Scripts -->
-<script> ...</script>
-<script> ...</script>
+<script>
+  function createCoin() {
+    const coin = document.createElement('div');
+    coin.classList.add('coin');
+    coin.innerHTML = '∞';
+    coin.style.left = Math.random() * window.innerWidth + 'px';
+    document.querySelector('.falling-coins').appendChild(coin);
+    setTimeout(() => { coin.remove(); }, 15000);
+  }
+  setInterval(createCoin, 2500);
+</script>
+<script>
+  function createCoin() {
+    const coin = document.createElement('div');
+    coin.classList.add('coin');
+    coin.innerHTML = '0';
+    coin.style.left = Math.random() * window.innerWidth + 'px';
+    document.querySelector('.falling-coins').appendChild(coin);
+    setTimeout(() => { coin.remove(); }, 15000);
+  }
+  setInterval(createCoin, 2500);
+</script>
 
   </body>
 </html>
