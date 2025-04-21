@@ -105,8 +105,7 @@
       }
       .section:hover { transform: scale(1.02); }
       .section h2 {
-        color:#ffcc00;
-        font-size:28px; margin-bottom:10px;
+        color:#ffcc00; font-size:28px; margin-bottom:10px;
       }
       .section img {
         width:100%; border-radius:15px;
@@ -152,33 +151,53 @@
       }
       .swap-links a:hover { transform:scale(1.05); }
 
-      /* — SUPPLY VISUALIZER STYLES — */
-      #supply-visualizer { background: #111; }
-      .supply-pile {
-        border: 3px solid #7c3aed;
-        border-radius: 20px 20px 0 0;
-        overflow: hidden;
+      /* — HORIZONTAL SUPPLY VISUALIZER STYLES — */
+      #supply-visualizer {
+        margin: 60px auto;
+        max-width: 800px;
+        color: #fff;
+        text-align: left;
+      }
+      #supply-visualizer h2 {
+        font-size: 24px;
+        color: #ffcc00;
+        margin-bottom: 15px;
+      }
+      .supply-track {
         position: relative;
-        background-color: #000;
-        box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
-      }
-      .liquid {
         width: 100%;
+        height: 40px;
+        background: #000;
+        border: 3px solid #7c3aed;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .supply-track .unreleased {
         position: absolute;
-        left: 0;
-        transition: height 1s ease;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #1f1f1f;
       }
-      .liquid.released {
-        bottom: 0;
-        background: linear-gradient(to top, #8b5cf6, #c4b5fd);
+      .supply-track .released-fill {
+        position: absolute;
+        top: 0; left: 0;
+        height: 100%;
+        width: var(--released-percent);
+        max-width: 100%;
+        background: linear-gradient(270deg, #8b5cf6, #c4b5fd, #8b5cf6);
+        background-size: 400% 400%;
+        animation: gradientMove 6s ease infinite;
       }
-      .liquid.unreleased {
-        top: 0;
-        background: linear-gradient(to bottom, #000, #1f1f1f);
+      @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
       }
-      .supply-label {
-        pointer-events: none;
-        text-shadow: 0 0 4px #000;
+      .supply-stats {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        font-size: 16px;
       }
     </style>
   </head>
@@ -258,19 +277,16 @@
         <img src="wallets-zrc.png" alt="Team & Test Wallets" data-aos="fade-up" data-aos-delay="300" />
       </div>
 
-      <!-- — SUPPLY VISUALIZER SECTION — -->
-      <section id="supply-visualizer" class="py-8">
-        <div class="container mx-auto flex justify-center items-end">
-          <div class="supply-pile relative" style="width:120px;height:300px;">
-            <div class="liquid released" style="height:calc(var(--released-percent)*1%);"></div>
-            <div class="liquid unreleased" style="height:calc((100 - var(--released-percent))*1%);"></div>
-            <div class="supply-label absolute bottom-2 w-full text-center text-sm">
-              Released: <span id="released-amount">0</span> ZRC
-            </div>
-            <div class="supply-label absolute top-2 w-full text-center text-sm">
-              Remaining: <span id="remaining-amount">0</span> ZRC
-            </div>
-          </div>
+      <!-- — HORIZONTAL SUPPLY VISUALIZER SECTION — -->
+      <section id="supply-visualizer" data-aos="fade-up">
+        <h2>Supply Distribution</h2>
+        <div class="supply-track">
+          <div class="unreleased"></div>
+          <div class="released-fill"></div>
+        </div>
+        <div class="supply-stats">
+          <span>Released: <strong id="released-amount">0</strong> ZRC</span>
+          <span>Remaining: <strong id="remaining-amount">0</strong> ZRC</span>
         </div>
       </section>
 
@@ -335,7 +351,7 @@
       (function(){
         const totalSupply = 4702000;
         function updateSupply(released) {
-          const pct = (released / totalSupply) * 100;
+          const pct = ((released / totalSupply) * 100).toFixed(2) + '%';
           document.documentElement.style.setProperty('--released-percent', pct);
           document.getElementById('released-amount').textContent = released.toLocaleString();
           document.getElementById('remaining-amount').textContent = (totalSupply - released).toLocaleString();
