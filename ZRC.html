@@ -319,6 +319,28 @@
         </p>
         <img src="wallets-zrc.png" alt="Team & Test Wallets" data-aos="fade-up" data-aos-delay="300" />
       </div>
+
+      <section id="supply-visualizer" class="py-8 bg-gray-900 text-white">
+  <div class="container mx-auto flex justify-center items-end">
+    <div class="supply-pile relative" style="width: 120px; height: 300px;">
+      <!-- Released liquid -->
+      <div class="liquid released" 
+           style="height: calc(var(--released-percent) * 1%);">
+      </div>
+      <!-- Unreleased liquid -->
+      <div class="liquid unreleased" 
+           style="height: calc((100 - var(--released-percent)) * 1%);">
+      </div>
+      <!-- Labels -->
+      <div class="supply-label absolute bottom-2 w-full text-center text-sm">
+        Released: <span id="released-amount">0</span> ZRC
+      </div>
+      <div class="supply-label absolute top-2 w-full text-center text-sm">
+        Remaining: <span id="remaining-amount">0</span> ZRC
+      </div>
+    </div>
+  </div>
+</section>
       
       <!-- SWAP Section -->
       <div id="swap" class="swap-container" data-aos="fade-up">
