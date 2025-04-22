@@ -391,15 +391,73 @@
     </script>
     
 <script>
+  <script>
+  async function connectWallet() {
+    if (window.ethereum) {
+      try {
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        alert(`Wallet connected: ${accounts[0]}`);
+      } catch (error) {
+        console.error('Connection error:', error);
+        alert('Failed to connect wallet.');
+      }
+    } else {
+      alert('MetaMask is not installed. Please install it to continue.');
+    }
+  }
+
   async function addZRC() {
     if (window.ethereum) {
       try {
+        const polygonChainId = '0x89'; // Polygon Mainnet
+        const currentChainId = await ethereum.request({ method: 'eth_chainId' });
+
+        // If not on Polygon, switch or add it
+        if (currentChainId !== polygonChainId) {
+          try {
+            await ethereum.request({
+              method: 'wallet_switchEthereumChain',
+              params: [{ chainId: polygonChainId }],
+            });
+            alert('Switched to Polygon network!');
+          } catch (switchError) {
+            if (switchError.code === 4902) {
+              try {
+                await ethereum.request({
+                  method: 'wallet_addEthereumChain',
+                  params: [{
+                    chainId: polygonChainId,
+                    chainName: 'Polygon Mainnet',
+                    nativeCurrency: {
+                      name: 'MATIC',
+                      symbol: 'MATIC',
+                      decimals: 18,
+                    },
+                    rpcUrls: ['https://polygon-rpc.com/'],
+                    blockExplorerUrls: ['https://polygonscan.com/'],
+                  }],
+                });
+                alert('Polygon network added and switched!');
+              } catch (addError) {
+                console.error('Error adding network:', addError);
+                alert('Error adding Polygon. Try manually from MetaMask.');
+                return;
+              }
+            } else {
+              console.error('Error switching network:', switchError);
+              alert('Error switching to Polygon. Try manually from MetaMask.');
+              return;
+            }
+          }
+        }
+
+        // Add ZRC token to MetaMask
         const wasAdded = await ethereum.request({
           method: 'wallet_watchAsset',
           params: {
             type: 'ERC20',
             options: {
-              address: '0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79',
+              address: '0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79', // ZRC Token Address
               symbol: 'ZRC',
               decimals: 8,
               image: 'https://zerocoin.netlify.app/zrc-list.png',
@@ -408,18 +466,20 @@
         });
 
         if (wasAdded) {
-          alert('ZRC has been added to your wallet!');
+          alert('ZRC successfully added to your wallet!');
         } else {
           alert('ZRC was not added.');
         }
+
       } catch (error) {
         console.error('Error adding token:', error);
-        alert('There was an error trying to add ZRC.');
+        alert('There was an error adding ZRC.');
       }
     } else {
       alert('MetaMask is not installed. Please install MetaMask and try again.');
     }
   }
+</script>
 </script>
   </body>
 </html>
