@@ -391,20 +391,11 @@
     </script>
     
 <script>
-  async function connectWallet() {
-    if (window.ethereum) {
-      try {
-        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-        alert(`Wallet connected: ${accounts[0]}`);
-      } catch (error) {
-        console.error('Connection error:', error);
-        alert('Failed to connect wallet.');
-      }
-    } else {
-      alert('MetaMask is not installed. Please install it to continue.');
-    }
+  window.addEventListener('ethereum#initialized', () => {
+  if (window.ethereum) {
+    console.log('MetaMask is installed!');
   }
-
+});
   async function addZRC() {
     if (window.ethereum) {
       try {
