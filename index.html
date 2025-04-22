@@ -392,86 +392,86 @@ No one else owns or controls this project
     
 <!-- And put this at the end of your body -->
 <script>
-  // Grab the injected EIP‑1193 provider (MetaMask, Trust, Coinbase, etc.)
-  const provider = window.ethereum;
-  if (provider) {
-    if (provider.isMetaMask) console.log('🦊 MetaMask detected');
-    else if (provider.isCoinbaseWallet) console.log('💼 Coinbase Wallet detected');
-    else if (provider.isTrust) console.log('🛡 TrustWallet detected');
-    else console.log('🔌 Ethereum provider detected');
-  }
+    async function connectAndAddZRC() {
+      const provider = window.ethereum;
 
-  async function connectAndAddZRC() {
-    if (!provider) {
-      return alert('No Ethereum wallet found. Please install MetaMask, Trust Wallet or Coinbase Wallet.');
-    }
+      if (!provider) {
+        alert('No Ethereum wallet found. Please install MetaMask, Trust Wallet, or Coinbase Wallet.');
+        return;
+      }
 
-    try {
-      // 1️⃣ Request account connection
-      const [account] = await provider.request({ method: 'eth_requestAccounts' });
-      console.log('Connected account:', account);
+      try {
+        // Request account connection
+        const accounts = await provider.request({ method: 'eth_requestAccounts' });
+        if (!accounts || accounts.length === 0) {
+          alert('Wallet connection failed. Please try again.');
+          return;
+        }
+        console.log('Connected account:', accounts[0]);
 
-      // 2️⃣ Ensure Polygon Mainnet is selected
-      const polygonChainId = '0x89';
-      const currentChain = await provider.request({ method: 'eth_chainId' });
-      if (currentChain !== polygonChainId) {
-        try {
-          await provider.request({
-            method: 'wallet_switchEthereumChain',
-            params: [{ chainId: polygonChainId }],
-          });
-          console.log('✅ Switched to Polygon');
-        } catch (switchError) {
-          // If chain not added, add it
-          if (switchError.code === 4902) {
+        // Ensure Polygon Mainnet
+        const polygonChainId = '0x89';
+        const currentChain = await provider.request({ method: 'eth_chainId' });
+        if (currentChain !== polygonChainId) {
+          try {
             await provider.request({
-              method: 'wallet_addEthereumChain',
-              params: [{
-                chainId: polygonChainId,
-                chainName: 'Polygon Mainnet',
-                nativeCurrency: {
-                  name: 'MATIC',
-                  symbol: 'MATIC',
-                  decimals: 18
-                },
-                rpcUrls: ['https://polygon-rpc.com/'],
-                blockExplorerUrls: ['https://polygonscan.com/']
-              }],
+              method: 'wallet_switchEthereumChain',
+              params: [{ chainId: polygonChainId }],
             });
-            console.log('✅ Added & switched to Polygon');
-          } else {
-            throw switchError;
+            console.log('✅ Switched to Polygon Mainnet');
+          } catch (switchError) {
+            if (switchError.code === 4902) {
+              // Add Polygon if not present
+              await provider.request({
+                method: 'wallet_addEthereumChain',
+                params: [{
+                  chainId: polygonChainId,
+                  chainName: 'Polygon Mainnet',
+                  nativeCurrency: {
+                    name: 'MATIC',
+                    symbol: 'MATIC',
+                    decimals: 18,
+                  },
+                  rpcUrls: ['https://polygon-rpc.com/'],
+                  blockExplorerUrls: ['https://polygonscan.com/'],
+                }],
+              });
+              console.log('✅ Added & switched to Polygon');
+            } else {
+              alert('Error switching to Polygon. Please switch manually in your wallet.');
+              throw switchError;
+            }
           }
         }
-      }
 
-      // 3️⃣ Ask wallet to watch (add) the ZRC token (EIP‑747)
-      const wasAdded = await provider.request({
-        method: 'wallet_watchAsset',
-        params: {
-          type: 'ERC20',
-          options: {
-            address: '0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79',
-            symbol: 'ZRC',
-            decimals: 8,
-            image: 'https://zerocoin.netlify.app/zrc-list.png'
+        // Add ZRC Token (EIP-747)
+        const wasAdded = await provider.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: '0x1Ec961190caDf1ae6c9488580cb9b8d09Ff75C79',
+              symbol: 'ZRC',
+              decimals: 8,
+              image: 'https://zerocoin.netlify.app/zrc-list.png',
+            },
           },
-        },
-      });
+        });
 
-      if (wasAdded) {
-        alert('🎉 ZeroCoin (ZRC) added to your wallet!');
-      } else {
-        alert('⚠️ ZeroCoin was not added.');
+        if (wasAdded) {
+          alert('🎉 ZeroCoin (ZRC) was successfully added to your wallet!');
+        } else {
+          alert('⚠️ ZeroCoin (ZRC) was not added.');
+        }
+      } catch (error) {
+        console.error('Error in connectAndAddZRC:', error);
+        alert('❌ An error occurred: ' + (error.message || 'Something went wrong.'));
       }
-    } catch (err) {
-      console.error('Error in connectAndAddZRC:', err);
-      alert('❌ ' + (err.message || 'Something went wrong.'));
     }
-  }
 
-  // Wire up the button
-  document.getElementById('add-zrc').addEventListener('click', connectAndAddZRC);
-</script>
-  </body>
+    // Wire up the button
+    document.getElementById('add-zrc')
+      .addEventListener('click', connectAndAddZRC);
+  </script>
+</body>
 </html>
