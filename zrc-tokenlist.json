@@ -2,7 +2,7 @@
   "name": "ZeroCoin Token List",
   "logoURI": "https://zerocoin.netlify.app/zrc-list.png",
   "keywords": ["zrc", "zerocoin", "polygon", "token"],
-    "timestamp": "2025-04-21T00:00:00+00:00",
+    "timestamp": "2025-04-22T00:00:00+00:00",
   "version": {
     "major": 1,
     "minor": 0,
@@ -15,7 +15,7 @@
       "name": "ZeroCoin",
       "symbol": "ZRC",
       "decimals": 8,
-      "logoURI": "https://zerocoin.netlify.app/zrc-list.png",
+      "logoURI": "https://zerocoin.netlify.app/list-logo.png",
       "website": "https://zerocoin.netlify.app/zrc",
       "twitter": "https://x.com/ZeroCoinzrc",
       "telegram": "https://t.me/ZRCzerocoin",
