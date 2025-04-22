@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ZRC-ZeroCoin ∞</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZRC-ZeroCoin ∞</title>
+
+  <!-- Optional: Favicon for browser tab and MetaMask -->
+  <link rel="icon" href="https://zerocoin.netlify.app/zrc-list.png" type="image/png" />
+
+  <!-- Optional: Theme color (helps on mobile, including MetaMask mobile browser) -->
+  <meta name="theme-color" content="#5B2C6F" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WHYB7FRHZ"></script>
     <script>
@@ -383,7 +389,8 @@
       }
       setInterval(createCoin, 2500);
     </script>
-    <script>
+    
+<script>
   async function addZRC() {
     if (window.ethereum) {
       try {
