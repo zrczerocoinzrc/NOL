@@ -77,13 +77,21 @@ background-size: cover;
         0%,70% { opacity:1; } 100% { opacity:0; }
       }
       /* Main Content */
+/* Main Content */
       .content {
         position: relative; z-index: 10;
         max-width: 900px; margin: auto;
       }
       img.logo { width: 150px; border-radius:50%; margin-bottom:20px; }
       h1 { font-size: 42px; }
-      p { font-size: 18px; max-width:700px; margin:10px auto; line-height:1.6; }
+-     p { font-size: 18px; max-width:700px; margin:10px auto; line-height:1.6; }
++     p {
++       font-size: 18px;
++       max-width: 700px;
++       margin: 10px auto;
++       line-height: 1.6;
++       color: black;          /* ← add this */
++     }
       /* Buttons */
       .btn {
         display:inline-block; padding:15px 30px;
