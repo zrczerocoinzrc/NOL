@@ -30,6 +30,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
     <style>
+      .shiny-purple {
+  font-size: 26px; /* Adjustable size */
+  font-weight: bold;
+  background: linear-gradient(90deg, #8e44ad, #9b59b6, #8e44ad); /* Gradient purple */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 5px #9b59b6, 0 0 10px #8e44ad, 0 0 20px #8e44ad, 0 0 30px #9b59b6;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
       /* Smooth Scrolling */
       html { scroll-behavior: smooth; }
       /* Global Styles */
@@ -222,12 +238,15 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
   <body>
     <!-- Falling Coins Container -->
     <div class="falling-coins"></div>
-
     <div class="content">
       <img src="wallets-zrc.png" alt="ZeroCoin ZRC ∞ Logo" class="logo" />
-<h1 style="color: #8B8000;">ZeroCoin ZRC ∞</h1>
-<p style="color: #8B8000;">
+<h1 class="shiny-purple">ZeroCoin ZRC ∞</h1>
+<p class="shiny-purple">
   ZeroCoin ZRC ∞ is a decentralized cryptocurrency built on Polygon blockchain.
+  Total supply about 4.7m ZRC, Developed without costly marketing, pre-mining advantages, or investor fundraising—this project is entirely community-driven and
+  focused on fairness and long-term real-world applicability. In addition
+  to its core functionalities, ZRC ZeroCoin now features bridging capabilities with BNB🔥,
+  empowering users to transfer tokens seamlessly across networks.
 </p>
 <a href="whitepaper.html" class="btn">Whitepaper</a>
 <a href="#swap" class="btn">Live chart & Distribution</a>
