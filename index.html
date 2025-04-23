@@ -34,14 +34,17 @@
       html { scroll-behavior: smooth; }
       /* Global Styles */
       body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background: url('background.png') no-repeat center center fixed;
-background-size: cover;
-        color: black;
-        margin: 0; padding: 50px;
-        position: relative; overflow-x: hidden;
-      }
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+    font-weight: bold; /* Add this line */
+    margin: 0;
+    padding: 50px;
+    position: relative;
+    overflow-x: hidden;
+}
       /* Infinity Background Watermark */
       body::before {
         content: '∞';
