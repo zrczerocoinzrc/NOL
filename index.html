@@ -33,18 +33,16 @@
       /* Smooth Scrolling */
       html { scroll-behavior: smooth; }
       /* Global Styles */
-      body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: url('background.png') no-repeat center center fixed;
-    background-size: cover;
-    color: black;
-    font-weight: bold; /* Add this line */
-    margin: 0;
-    padding: 50px;
-    position: relative;
-    overflow-x: hidden;
-}
+    body {
+         font-family: Arial, sans-serif;
+         text-align: center;
+         background: url('background.png') no-repeat center center fixed;
+ background-size: cover;
+color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */  
+      
+      margin: 0; padding: 50px;
+         position: relative; overflow-x: hidden;
+       }
       /* Infinity Background Watermark */
       body::before {
         content: '∞';
@@ -112,15 +110,16 @@
         60% { transform: translateY(-8px); }
       }
       /* Section Layout */
-      .section {
-        background: rgba(255,255,255,0.1);
-        padding:30px; margin:50px auto;
-        border:2px solid #ffcc00;
-        border-radius:15px;
-        max-width:700px;
-        box-shadow:0 4px 15px rgba(255,204,0,0.3);
-        transition: transform 0.3s ease;
-      }
+.section {
+    background: rgba(255, 255, 255, 0.8); /* 80% opacity */
+    padding: 30px;
+    margin: 50px auto;
+    border: 2px solid #ffcc00;
+    border-radius: 15px;
+    max-width: 700px;
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+    transition: transform 0.3s ease;
+}
       .section:hover { transform: scale(1.02); }
       .section h2 {
         color:#ffcc00; font-size:28px; margin-bottom:10px;
