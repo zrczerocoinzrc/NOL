@@ -551,5 +551,15 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
         }
     });
 </script>
+    
+    <script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Address copied to clipboard!');
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  }
+</script>
 </body>
 </html>
