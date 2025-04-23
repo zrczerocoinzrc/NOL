@@ -29,6 +29,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
     <style>
+      .scroll-down-arrow {
+    position: fixed; /* Sits on top of everything */
+    top: 20px; /* Adjust the position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    font-size: 24px; /* Adjust font size */
+    color: #333; /* Adjust color to match your theme */
+    z-index: 9999; /* Ensures it is above all other content */
+    animation: bounce 2s infinite; /* Adds continuous bounce animation */
+    cursor: pointer; /* Changes the cursor to indicate interactivity */
+    display: block; /* Initially visible */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-5px) translateX(-50%);
+    }
+}
       .shiny-purple {
   font-size: 26px; /* Adjustable size */
   font-weight: bold;
@@ -235,6 +259,7 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
     </style>
   </head>
   <body>
+  <div class="scroll-down-arrow" id="scrollArrow">▼</div>
    <div class="falling-coins"></div>
     <div class="content">
       <img src="logo.png" alt="ZeroCoin ZRC ∞ Logo" class="logo" />
@@ -516,5 +541,16 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
     document.getElementById('add-zrc')
       .addEventListener('click', connectAndAddZRC);
   </script>
+    <script>
+    // Hide the scroll arrow when scrolling down
+    window.addEventListener('scroll', () => {
+        const scrollArrow = document.getElementById('scrollArrow');
+        if (window.scrollY > 50) { // If user scrolls down 50px or more
+            scrollArrow.style.display = 'none';
+        } else {
+            scrollArrow.style.display = 'block';
+        }
+    });
+</script>
 </body>
 </html>
