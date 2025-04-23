@@ -38,15 +38,16 @@
          text-align: center;
          background: url('background.png') no-repeat center center fixed;
  background-size: cover;
+      opacity: 0.9; /* Add this line to reduce shininess 
 color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */  
-      
+      font-weight: bold;
       margin: 0; padding: 50px;
          position: relative; overflow-x: hidden;
        }
       /* Infinity Background Watermark */
       body::before {
         content: '∞';
-        position: fixed;
+        position: fixe7d;
         top: 50%; left: 50%;
         font-size: 300px; opacity: 0.05;
         transform: translate(-50%, -50%);
@@ -85,13 +86,13 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
       }
       img.logo { width: 150px; border-radius:50%; margin-bottom:20px; }
       h1 { font-size: 42px; }
--     p { font-size: 18px; max-width:700px; margin:10px auto; line-height:1.6; }
+-     p { font-size: 26px; max-width:700px; margin:10px auto; line-height:1.6; }
 +     p {
-+       font-size: 18px;
++       font-size: 26px;
 +       max-width: 700px;
 +       margin: 10px auto;
 +       line-height: 1.6;
-+       color: black;          /* ← add this */
++       color: #8B8000;/* Add this line to reduce shininess ;          /* ← add this */
 +     }
       /* Buttons */
       .btn {
@@ -224,14 +225,10 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
 
     <div class="content">
       <img src="wallets-zrc.png" alt="ZeroCoin ZRC ∞ Logo" class="logo" />
-      <h1>ZeroCoin ZRC ∞</h1>
-      <p>
-        ZeroCoin ZRC ∞ is a decentralized cryptocurrency built on Polygon blockchain.
-       Total supply about 4.7m ZRC, Developed without costly marketing, pre-mining advantages, or investor fundraising—this project is entirely community-driven and
-        focused on fairness and long-term real-world applicability. In addition
-        to its core functionalities, ZRC ZeroCoin now features bridging capabilities with BNB🔥,
-        empowering users to transfer tokens seamlessly across networks.
-      </p>
+<h1 style="color: #8B8000;">ZeroCoin ZRC ∞</h1>
+<p style="color: #8B8000;">
+  ZeroCoin ZRC ∞ is a decentralized cryptocurrency built on Polygon blockchain.
+</p>
 <a href="whitepaper.html" class="btn">Whitepaper</a>
 <a href="#swap" class="btn">Live chart & Distribution</a>
 <br/>
