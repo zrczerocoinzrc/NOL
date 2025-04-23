@@ -33,15 +33,22 @@
       /* Smooth Scrolling */
       html { scroll-behavior: smooth; }
       /* Global Styles */
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background: url('background.png') no-repeat center center fixed;
-background-size: cover;
-        color: black;
-        margin: 0; padding: 50px;
-        position: relative; overflow-x: hidden;
-      }
+    body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 50px;
+  position: relative;
+  overflow-x: hidden;
+
+  /* Text styles */
+  font-size: 16px; /* Increased size (default is usually 16px) */
+  background: linear-gradient(to right, purple, black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
       /* Infinity Background Watermark */
       body::before {
         content: '∞';
