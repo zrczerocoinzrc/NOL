@@ -72,19 +72,17 @@
       /* Smooth Scrolling */
       html { scroll-behavior: smooth; }
       /* Global Styles */
-body {
-    margin: 0; /* Reset margin */
-    padding: 0; /* Reset padding */
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: url('background.png') no-repeat center center fixed;
-    background-size: cover;
-    opacity: 0.9;
-    color: #0d0013;
-    font-weight: bold;
-    position: relative;
-    overflow-x: hidden;
-}
+    body {
+         font-family: Arial, sans-serif;
+         text-align: center;
+         background: url('background.png') no-repeat center center fixed;
+ background-size: cover;
+      opacity: 0.9; /* Add this line to reduce shininess 
+color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */  
+      font-weight: bold;
+      margin: 0; padding: 50px;
+         position: relative; overflow-x: hidden;
+       }
       /* Infinity Background Watermark */
       body::before {
         content: '∞';
@@ -122,17 +120,19 @@ body {
       /* Main Content */
 /* Main Content */
       .content {
-    position: relative;
-    z-index: 10;
-    max-width: 900px;
-    margin: 0 auto; /* Remove any default margin above the content */
-}
-img.logo {
-    width: 150px;
-    border-radius: 50%;
-    margin: 0 auto; /* Remove bottom margin or unnecessary spacing */
-    display: block;
-}
+        position: relative; z-index: 10;
+        max-width: 900px; margin: auto;
+      }
+      img.logo { width: 150px; border-radius:50%; margin-bottom:20px; }
+      h1 { font-size: 42px; }
+-     p { font-size: 26px; max-width:700px; margin:10px auto; line-height:1.6; }
++     p {
++       font-size: 26px;
++       max-width: 700px;
++       margin: 10px auto;
++       line-height: 1.6;
++       color: #8B8000;/* Add this line to reduce shininess ;          /* ← add this */
++     }
       /* Buttons */
       .btn {
         display:inline-block; padding:15px 30px;
