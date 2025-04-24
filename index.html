@@ -117,8 +117,8 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
 +     }
       /* Buttons */
       .btn {
-        display:inline-block; padding:15px 25px;
-        font-size:18px;
+        display:inline-block; padding:13px 23px;
+        font-size:16px;
         background-color:#ffcc00; color:#121212;
         text-decoration:none; border-radius:8px;
         margin:20px auto;
@@ -134,7 +134,7 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
       /* Section Layout */
 .section {
     background: rgba(255, 255, 255, 0.8); /* 80% opacity */
-    padding: 30px;
+    padding: 35px;
     margin: 50px auto;
     border: 2px solid #ffcc00;
     border-radius: 15px;
@@ -156,16 +156,35 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
         position: relative; height:400px; width:100%; margin:20px auto;
       }
       /* Contact Floating Section */
-      .contact {
-        position: fixed; left:20px; bottom:20px;
-        display:flex; flex-direction:column; gap:10px;
-      }
-      .contact a {
-        display:inline-block; text-decoration:none;
-        transition:transform 0.2s ease;
-      }
-      .contact a:hover { transform:scale(1.1); }
-      .contact img { width:30px; height:30px; display:block; }
+      /* Contact Floating Section */
+.contact {
+  position: fixed;
+  left: 15px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact a {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.contact a:hover {
+  transform: scale(1.1);
+}
+
+.contact img {
+  width: 35px;
+  height: 35px;
+  display: block;
+  border-radius: 50%;       /* Makes it circular */
+  object-fit: cover;        /* Ensures image fills the circle */
+  background-color: #fff;   /* Optional: Add background */
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); /* Optional: Subtle shadow */
+}
       /* Swap Section Styles */
       .swap-container {
         background-color: transparent;
@@ -246,10 +265,10 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
    <div class="falling-coins"></div>
 <img src="wallets1.gif" alt="ZeroCoin ZRC ∞ Logo" class="logo" />
           <h1 style="color: purple;">ZeroCoin ZRC ∞</h1>
-<p style="color: darkgoldenrod;">
-  ZeroCoin ZRC ∞ is a decentralized cryptocurrency 
-  built on Polygon blockchain⚡《Purely bridgable to #BNB soon🔥》 
-  4.7M total supply❄ ☠ with +9 year release plan 💜
+<p style="color: gold;">
+  ZeroCoin ZRC ∞is a decentralized cryptocurrency 
+  built on Polygon blockchain⚡《Purely bridgable to #BNB soon🔥》
+   4.7M total supply❄ ☠ with +9 year release plan 💜
 </p>
 <a href="whitepaper.html" class="btn">Whitepaper</a>
 <a href="#swap" class="btn">Live chart & Distribution</a>
@@ -272,12 +291,12 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
 <p style="color: #8B8000;" data-aos="fade-up" data-aos-delay="50">
   Blockchain: <strong style="color: black;">Available on Polygon (MATIC) and soon bridgable to BNB Smart Chain</strong>
 </p>
-        <p style="color: #8B8000;"  data-aos="fade-up" data-aos-delay="80">
+        <p style="color: #8B8000;"  data-aos="fade-up" data-aos-delay="75">
           Decimals: <strong>8</strong> – Creation Date: February 26, 2025. 
           Smart Contract Address: 0x1ec961190cadf1ae6c9488580cb9b8d09ff75c79. 
           Fast transactions, low fees, and high scalability.
         </p>
-        <img src="moon2.png" alt="Technical Specifications" data-aos="fade-up" data-aos-delay="120" />
+        <img src="moon2.png" alt="Technical Specifications" data-aos="fade-up" data-aos-delay="100" />
       </div>
 
       <!-- Cross-Chain Bridging Section -->
@@ -298,7 +317,7 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
         <p style="color: #8B8000;" data-aos="fade-up" data-aos-delay="80">
   <strong style="color: black;">2025 Q4:</strong> Releasing 60% of ZeroCoin’s total supply over 12‑15 months
 </p>
-        <p style="color: #8B8000;" data-aos="fade-up" data-aos-delay="120">
+        <p style="color: #8B8000;" data-aos="fade-up" data-aos-delay="110">
   <strong style="color: black;">2026+:</strong> Annual release of 4% of the total supply with ongoing ecosystem development
 </p>
         <img src="moon3.png" alt="Roadmap" data-aos="fade-up" data-aos-delay="150" />
@@ -317,7 +336,7 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
   Inspired by economic research and personal drive 👀📚, this project was built with full transparency.
   No one else owns or controls this project.
 </p>
-        <p style="color: #8B8000;" data-aos="fade-up" data-aos-delay="120">
+        <p style="color: #8B8000;" data-aos="fade-up" data-aos-delay="100">
   <strong style="color: black;">Test Wallets:</strong> Used no more than (< 0.2% ) testing transactions & liquidity:
 <button onclick="copyToClipboard('0x8Dec3bEA8EB8283558A5dD481a678fCae332FEE8, 0x4332dF7cc944677826F8491b367d6C4654756a70')">
   Copy Test Addresses
