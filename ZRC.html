@@ -121,7 +121,7 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
         font-size:16px;
         background-color:#ffcc00; color:#121212;
         text-decoration:none; border-radius:8px;
-        margin:20px auto;
+        margin:15px auto;
         transition:transform 0.3s ease;
         animation:bounce 3s infinite;
       }
@@ -264,9 +264,9 @@ color: #0d0013; /* Almost black with a purple tint */ /* Dark purple (Indigo) */
         <div class="content">
    <div class="falling-coins"></div>
 <img src="wallets1.gif" alt="ZeroCoin ∞ Logo" class="logo" />
-          <h1 style="color: purple;">ZeroCoin ∞</h1>
-<p style="color: #8B8000;" data-aos="fade-up" data-aos-delay="10">
-  ZeroCoin ZRC ∞ its a decentralized cryptocurrency 
+          <h1 style="color: purple;">ZeroCoin</h1>
+<p style="color: black;" data-aos="fade-up" data-aos-delay="10">
+  ZeroCoin ∞ ZRC its a decentralized cryptocurrency 
   built on Polygon blockchain⚡《bridgable to #BNB soon🔥》
   ≈4.7M Total Supply❄☠ (+9 years) release plan 💜
 </p>
@@ -453,11 +453,12 @@ Website, X (Twitter), Telegram, Community channels launched, and (Invite contest
         const coin = document.createElement('div');
         coin.className = 'coin';
         coin.innerText = '∞';
+        coin.innerText = '0';
         coin.style.left = Math.random() * window.innerWidth + 'px';
         document.querySelector('.falling-coins').appendChild(coin);
         setTimeout(() => coin.remove(), 15000);
       }
-      setInterval(createCoin, 2500);
+      setInterval(createCoin, 2000);
     </script>
     
 <!-- And put this at the end of your body -->
